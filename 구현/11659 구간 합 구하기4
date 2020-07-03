@@ -1,0 +1,40 @@
+/*
+	구간 합 구하기
+	:세그먼트 트리가 아닌 O(1)로 입력을 받으면서
+	합계 테이블에 값을 넣어준다.
+*/
+
+#include<stdio.h>
+
+int sum[100001]={0,};
+int arr[100001] = {0,};
+
+int main()
+{
+	int N, M;
+
+	scanf("%d %d", &N, &M);
+
+	for (int i = 1; i <= N; i++)
+	{
+		scanf("%d", &arr[i]);
+		sum[i] += sum[i - 1] + arr[i];
+	}
+	/*
+	for (int i = 0; i <= N; i++)
+	{
+		printf("%d\n", sum[i]);
+	}
+	*/
+	for (; M > 0; M--)
+	{
+		int res;
+		int a, b;
+		scanf("%d %d", &a, &b);
+		res =sum[b] - sum[a - 1];
+		printf("%d\n", res);
+	}
+
+	return 0;
+
+}
