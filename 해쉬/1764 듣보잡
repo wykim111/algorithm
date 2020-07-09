@@ -1,0 +1,228 @@
+#include<stdio.h>
+#include<string.h>
+#include<memory.h>
+#include<stdlib.h>
+
+#define STR_SIZE 22
+#define HASH_MUL 17
+#define HASH_SIZE 500001
+
+typedef struct _NODE
+{
+	char name[21];
+	struct _NODE * next;
+}Node;
+
+Node* stHashTable[HASH_SIZE];
+char nameTable[500001][22];
+int nameCnt = 0;
+char TempTable[500001][22];
+
+void Init()
+{
+	int i;
+
+	for (i = 0; i < HASH_SIZE; i++)
+	{
+		stHashTable[i] = NULL;
+	}
+}
+
+unsigned long getHash(char* str)
+{
+	unsigned long key = 0;
+	int strLen = strlen(str);
+	int i;
+
+	for (i = 0; i < strLen; i++)
+	{
+		key += (str[i] * HASH_MUL ) % HASH_SIZE;
+	}
+
+	return key ;
+}
+
+void insert(char* str, unsigned long key)
+{
+	Node* newNode = (Node*)malloc(sizeof(Node));
+
+	if (newNode == NULL)
+	{
+		printf("동적할당 실패]n");
+		return;
+	}
+
+	strcpy(newNode->name, str);
+	newNode->next = stHashTable[key];
+	stHashTable[key] = newNode;
+
+	return;
+}
+
+void bubbleSort(int size)
+{
+	int i, j;
+
+	for (i = 0; i < size - 1; i++)
+	{
+		for (j = 0; j < size - 1 - i; j++)
+		{
+			if (strcmp(nameTable[j], nameTable[j + 1]) > 0)
+			{
+				char temp[21];
+
+				memset(temp, 0, sizeof(temp));
+				strcpy(temp, nameTable[j]);
+
+				memset(nameTable[j], 0, sizeof(nameTable[j]));
+				strcpy(nameTable[j], nameTable[j + 1]);
+
+				memset(nameTable[j + 1], 0, sizeof(nameTable[j + 1]));
+				strcpy(nameTable[j + 1], temp);
+			}
+		}
+	}
+}
+
+void MergeSort(int start, int mid, int end)
+{
+	int fIdx = start;
+	int rIdx = mid + 1;
+	int Idx = start;
+	int i, j;
+	
+	/*
+	//동적할당
+	char** TempTable = (char**)malloc(sizeof(char*)*(end+1));
+
+	for (i = 0; i < end+1; i++)
+	{
+		TempTable[i] = (char*)malloc(sizeof(char)* STR_SIZE);
+	}
+	*/
+
+	while (fIdx <= mid && rIdx <= end)
+	{
+		if (strcmp(nameTable[fIdx], nameTable[rIdx]) > 0)
+		{
+			strcpy(TempTable[Idx],nameTable[rIdx]);
+			Idx++;
+			rIdx++;
+		}
+		else
+		{
+			strcpy(TempTable[Idx], nameTable[fIdx]);
+			Idx++;
+			fIdx++;
+		}
+		
+	}
+
+	
+	for (; fIdx <= mid; fIdx++,Idx++)
+	{
+		strcpy(TempTable[Idx], nameTable[fIdx]);
+	}
+	for (; rIdx <= end; rIdx++,Idx++)
+	{
+		strcpy(TempTable[Idx], nameTable[rIdx]);
+	}
+
+	for (i = start; i <= end; i++)
+	{
+		strcpy(nameTable[i], TempTable[i]);
+	}
+
+	/*
+	//동적할당 해제
+	for (i = 0; i <= end; i++)
+	{
+		free(TempTable[i]);
+	}
+	free(TempTable);
+	*/
+	return;
+}
+
+void Merge(int start, int end)
+{
+	if (start < end)
+	{
+		int mid = (start + end) >> 1;
+
+		Merge(start, mid);
+		Merge(mid + 1, end);
+
+		MergeSort(start, mid, end);
+	}
+
+	return;
+}
+
+void delNode()
+{
+	int i = 0;
+
+	for (i = 0; i < HASH_SIZE; i++)
+	{
+		free(stHashTable[i]);
+	}
+}
+
+int main()
+{
+	int N, M;
+	char name[21];
+	unsigned long key = 0;
+	
+
+	Init();
+
+	scanf("%d %d", &N, &M);
+
+	while (N--)
+	{
+	
+		memset(name, 0, sizeof(name));
+		scanf("%s", name);
+
+		key = getHash(name);
+		insert(name,key);
+		
+
+	}//while N
+
+	while (M--)
+	{
+		Node* iter = NULL;
+
+		memset(name, 0, sizeof(name));
+		scanf("%s", name);
+
+		key = getHash(name);
+
+		for (iter = stHashTable[key]; iter != NULL; iter = iter->next)
+		{
+			//해시 테이블 키를 탐색하여 같은 이름이 있으면 카운트
+			if (strcmp(iter->name, name) == 0)
+			{
+				strcpy(nameTable[nameCnt],name);
+				nameCnt++;
+
+			}
+		}
+	}//while M
+
+	//bubbleSort(nameCnt);
+	Merge(0, nameCnt - 1);
+//	printf("========================================================\n");
+	printf("%d\n", nameCnt);
+	for (int i = 0; i < nameCnt; i++)
+	{
+		printf("%s\n", nameTable[i]);
+	}
+
+	//delNode();
+
+	return 0;
+}
