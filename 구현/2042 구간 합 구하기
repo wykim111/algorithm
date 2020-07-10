@@ -5,9 +5,6 @@ long long segment[1 << 21];
 
 long long Init(int val,int node,int x,int y)
 {
-	//해당 구간이 찾아가야 하는 범위를 벗어난 경우
-	if (pos < x || pos > y)
-		return segment[node];
 	if (x == y)
 	{
 		return segment[node] = val;
