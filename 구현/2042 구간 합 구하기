@@ -1,0 +1,58 @@
+#include<stdio.h>
+
+int N, M, K;//수의 갯수, 수의 변경이 일어나는 횟수, 구간의 합
+long long segment[1 << 21];
+//pos: 값을 갱신할 위치, val: 변경할 값
+long long update(int pos,int val,int node,int x,int y)
+{
+	//해당 구간이 찾아가야 하는 범위를 벗어난 경우
+	if (pos < x || pos > y)
+		return segment[node];
+	if (x == y)
+	{
+		return segment[node] = val;
+	}
+	long long mid = (x + y) >> 1;
+
+	return segment[node] = update(pos, val, node * 2, x, mid) + update(pos, val, node * 2 + 1, mid + 1, y);
+}
+
+long long query(int lo, int hi, int node, int x, int y)
+{
+	if (x > hi || y < lo)
+		return 0;
+	if (lo <= x && y <= hi)
+		return segment[node];
+
+	long long mid = (x + y) >> 1;
+
+	return query(lo, hi, node * 2, x, mid) + query(lo, hi, node * 2 + 1, mid + 1, y);
+
+}
+int main()
+{
+	scanf("%d %d %d", &N, &M, &K);
+
+	for (int i = 0; i < N; i++)
+	{
+		int num;
+		scanf("%d", &num);
+		update(i, num, 1, 0, N - 1);
+	}
+	for (int i = 0; i < M + K; i++)
+	{
+		int a, b, c;
+
+		scanf("%d %d %d", &a, &b, &c);
+		
+		if (a == 1)
+		{
+			update(b - 1, c, 1, 0, N - 1);
+		}
+		else
+		{
+			printf("%lld\n", query(b - 1, c - 1, 1, 0, N - 1));
+		}
+	}
+	return 0;
+}
