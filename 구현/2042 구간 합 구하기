@@ -2,8 +2,8 @@
 
 int N, M, K;//수의 갯수, 수의 변경이 일어나는 횟수, 구간의 합
 long long segment[1 << 21];
-//pos: 값을 갱신할 위치, val: 변경할 값
-long long update(int pos,int val,int node,int x,int y)
+
+long long Init(int val,int node,int x,int y)
 {
 	//해당 구간이 찾아가야 하는 범위를 벗어난 경우
 	if (pos < x || pos > y)
@@ -14,7 +14,25 @@ long long update(int pos,int val,int node,int x,int y)
 	}
 	long long mid = (x + y) >> 1;
 
-	return segment[node] = update(pos, val, node * 2, x, mid) + update(pos, val, node * 2 + 1, mid + 1, y);
+	return segment[node] = Init(pos, val, node * 2, x, mid) + Init(pos, val, node * 2 + 1, mid + 1, y);
+}
+
+
+
+
+//pos: 값을 갱신할 위치, val: 변경할 값
+long long update(int pos,int gap,int node,int x,int y)
+{
+	//해당 구간이 찾아가야 하는 범위를 벗어난 경우
+	if (pos < x || pos > y)
+		return segment[node];
+	if (x == y)
+	{
+		return segment[node] += gap;
+	}
+	long long mid = (x + y) >> 1;
+
+	return segment[node] = update(pos, gap, node * 2, x, mid) + update(pos, gap, node * 2 + 1, mid + 1, y);
 }
 
 long long query(int lo, int hi, int node, int x, int y)
