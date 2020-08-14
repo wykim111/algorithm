@@ -1,0 +1,125 @@
+/*
+	해당되는 숫자의 모든 경우의 수를 순열을 이용하여 구한다.
+	순열로 나온 숫자들을 소수가 맞는지 체크하여 카운트한다.
+
+	
+
+
+*/
+#include<stdio.h>
+#include<string.h>
+#include<math.h>
+#include<stdlib.h>
+
+char str[8];
+char ret[8];
+int strLen=0;
+int visit[8];
+int Prime[10000000] = {0,0,};
+int retCnt=0;
+int visitPrime[10000000];
+
+void Init()
+{
+	retCnt=0;
+	memset(str,0,sizeof(str));
+	memset(ret,0,sizeof(ret));
+	memset(visit,0,sizeof(visit));
+	memset(visitPrime,0,sizeof(visitPrime));
+}
+void PrimeInit()
+{
+	int i;
+
+	for(i=2;i<=10000000;i++)
+	{
+		Prime[i]=1;
+	}
+}
+
+
+void checkPrime()
+{
+	int i,j;
+
+	
+	for(i=2;i<=sqrt(10000000);i++)
+	{
+		for(j=2;i*j<=10000000;j++)
+		{
+			Prime[i*j]=0;
+		}
+	}
+
+}
+
+void perm(int cnt,int dep,int pick)
+{
+	int i;
+
+	if(cnt == pick)
+	{
+		int StringToInt=atoi(ret);
+		
+
+	/*
+		for(i=0;i<dep;i++)
+		{
+			printf("%c",ret[i]);
+		}
+		printf("\n");
+	*/
+
+		if(Prime[StringToInt] == 1 && visitPrime[StringToInt] == 0)
+		{
+			visitPrime[StringToInt]=1;
+			retCnt++;
+//			printf("retCnt=%d StringToInt=%d\n",retCnt,StringToInt);
+		}
+		return;
+	}
+
+	for(i=0;i<strLen;i++)
+	{
+		if(visit[i] == 1)
+		{
+			continue;
+		}
+
+		visit[i]=1;
+		ret[dep]=str[i];
+		perm(cnt+1,dep+1,pick);
+		visit[i]=0;
+	}
+
+}
+
+int main()
+{
+
+	int N;
+
+	scanf("%d",&N);
+
+	while(N--)
+	{
+		int i;
+
+		
+		Init();
+		PrimeInit();
+		checkPrime();
+
+		scanf("%s",str);
+
+		strLen=strlen(str);
+
+		for(i=1;i<=strLen;i++)
+		{
+			perm(0,0,i);
+
+		}
+		printf("%d\n",retCnt);
+	}
+	return 0;
+}
