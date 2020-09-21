@@ -27,7 +27,7 @@ int match(int num)
 	{
 		matchStr[i] = 0;
 	}
-
+	//sum에 대한 수를 역순으로 저장
 	while (temp != 0)
 	{
 		remain = temp % 10;
@@ -36,7 +36,10 @@ int match(int num)
 
 	}
 	matchStr[idx] = '\0';
-
+	//팰린드롬 원리처럼 좌우 같은 숫자가 있는지 체크
+	// sum에 대한 수를 역순으로 저장했기 때문에 원래대로
+	//정방향으로 해야함.
+	//하지만!!! 정방향 필요 없이 역순으로 되어도 좌우 데이터만 같으면 상관 없음
 	for (int i = 0; i < idx/2; i++)
 	{
 		if (matchStr[i] != matchStr[idx - 1 - i])
