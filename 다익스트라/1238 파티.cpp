@@ -1,3 +1,11 @@
+/*
+	1. 비용을 저장하는 배열을 초기화
+	2. 다익스트라(시작 : 1~N) -> 도착지점 X번
+	3. 다익스트라(시작 : X) -> 도착지점 1~N
+	4. 2~3번의 도착지점을 더하여 최댓값 탐색
+
+*/
+
 #include<iostream>
 #include<vector>
 #include<algorithm>
