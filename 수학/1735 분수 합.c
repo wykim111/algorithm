@@ -13,12 +13,12 @@
 int denominatorA, denominatorB, denominatorC;//분모 A,B
 int numeratorA, numeratorB, numeratorC;//분자 A,B
 
-int GCM(int a, int b)
+int GCD(int a, int b)
 {
 	if (b == 0)
 		return a;
 
-	return GCM(b, a%b);
+	return GCD(b, a%b);
 }
 
 
@@ -26,30 +26,30 @@ int GCM(int a, int b)
 
 int main()
 {
-	int numGCM;
+	int numGCD;
 	int denominatorTempA, denominatorTempB;//분모 A,B
 	int numeratorTempA, numeratorTempB;//분자 A,B
 	// input 분자, 분모
 	scanf("%d %d",&numeratorA,&denominatorA);
 	scanf("%d %d", &numeratorB, &denominatorB);
 
-	numGCM = GCM(denominatorA, denominatorB);
+	numGCD = GCD(denominatorA, denominatorB);
 
 	//분모 연산
-	denominatorTempA = denominatorA *(denominatorB / numGCM);
-	denominatorTempB = denominatorB * (denominatorA / numGCM);
+	denominatorTempA = denominatorA *(denominatorB / numGCD);
+	denominatorTempB = denominatorB * (denominatorA / numGCD);
 
 	//분자 연산
-	numeratorTempA = numeratorA * (denominatorB / numGCM);
-	numeratorTempB = numeratorB * (denominatorA / numGCM);
+	numeratorTempA = numeratorA * (denominatorB / numGCD);
+	numeratorTempB = numeratorB * (denominatorA / numGCD);
 
 	
 	denominatorC = denominatorTempA;//B도 연산하였기 때문에 denominatorB 가능
 	numeratorC = numeratorTempA + numeratorTempB;
 
 	//기약분수
-	numGCM = GCM(numeratorC, denominatorC);
-	printf("%d %d\n", numeratorC/numGCM, denominatorC/numGCM);
+	numGCD = GCD(numeratorC, denominatorC);
+	printf("%d %d\n", numeratorC/numGCD, denominatorC/numGCD);
 
 
 	return 0;
