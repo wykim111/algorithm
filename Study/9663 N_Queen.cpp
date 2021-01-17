@@ -2,7 +2,7 @@
 #include<math.h>
 
 int N;
-int map[15];//ÀÎµ¦½º´Â Row¸¦ ÀÇ¹Ì, ÇØ´çÇÏ´Â µ¥ÀÌÅÍ´Â ColÀ» ÀÇ¹Ì
+int map[15];//ì¸ë±ìŠ¤ëŠ” Rowë¥¼ ì˜ë¯¸, í•´ë‹¹í•˜ëŠ” ë°ì´í„°ëŠ” Colì„ ì˜ë¯¸
 int sum = 0;
 
 int threat(int Row)
@@ -11,8 +11,8 @@ int threat(int Row)
 
 	while (cur_Row < Row)
 	{
-		//´ë°¢¼±-> ÁÂÃø ´ë°¢¼± ¹× ¿ìÃø ´ë°¢¼±
-		//Á÷¼±
+		//ëŒ€ê°ì„ -> ì¢Œì¸¡ ëŒ€ê°ì„  ë° ìš°ì¸¡ ëŒ€ê°ì„ 
+		//ì§ì„ 
 		if (abs(cur_Row - Row) == abs(map[cur_Row] - map[Row]) ||((map[cur_Row]- map[Row])== 0) )
 		{
 			return 1;
@@ -24,7 +24,7 @@ int threat(int Row)
 
 void find_Queen(int Row,int cnt)
 {
-	//ÄıÀÇ µ¿¼±¿¡ ÀÖ´ÂÁö È®ÀÎ
+	//í€¸ì˜ ë™ì„ ì— ìˆëŠ”ì§€ í™•ì¸
 	if (threat(Row) == 1)
 	{
 		return;
@@ -51,7 +51,7 @@ int main()
 
 	for (int i = 0; i < N; i++)
 	{
-		map[0] = i;//0Çà¿¡ ÇØ´çÇÏ´Â colÀ» ´ëÀÔ
+		map[0] = i;//0í–‰ì— í•´ë‹¹í•˜ëŠ” colì„ ëŒ€ì…
 		find_Queen(0, 0);
 	}
 	printf("%d\n", sum);
