@@ -1,18 +1,18 @@
 /*
-	1.¹Ì·Î ¾ÈÀÇ ÇÑÄ­¿¡ ³²ÂÊÀ» ¹Ù¶óº»´Ù ÇÏ¿´À¸¹Ç·Î 50*2·Î ¹è¿­ÀÇ »çÀÌÁî Á¤ÇÔ
-	2. startY,startX, endY,endX·Î ¹üÀ§¸¦ Á¤ÇÑµÚ Ãâ·Â
-	3. ÁÂ¿ì´Â È¸Àü¸¸ ÇÒ »Ó ³ª¾Æ°¡Áö´Â ¾ÊÀ½
+	1.ë¯¸ë¡œ ì•ˆì˜ í•œì¹¸ì— ë‚¨ìª½ì„ ë°”ë¼ë³¸ë‹¤ í•˜ì˜€ìœ¼ë¯€ë¡œ 50*2ë¡œ ë°°ì—´ì˜ ì‚¬ì´ì¦ˆ ì •í•¨
+	2. startY,startX, endY,endXë¡œ ë²”ìœ„ë¥¼ ì •í•œë’¤ ì¶œë ¥
+	3. ì¢Œìš°ëŠ” íšŒì „ë§Œ í•  ë¿ ë‚˜ì•„ê°€ì§€ëŠ” ì•ŠìŒ
 
 */
 #include<stdio.h>
 #include<string.h>
 
-//³²¼­ºÏµ¿
+//ë‚¨ì„œë¶ë™
 int dy[] = { 1,0,-1,0 };
 int dx[] = { 0,-1,0,1 };
 char str[50];
 int map[101][101];
-int dir = 0; //dy,dx´Â 0ÀÌ¶ó´Â ÀÇ¹Ì(³²ÂÊÀ» ¹Ù¶óº¸°í ÀÖÀ½)
+int dir = 0; //dy,dxëŠ” 0ì´ë¼ëŠ” ì˜ë¯¸(ë‚¨ìª½ì„ ë°”ë¼ë³´ê³  ìžˆìŒ)
 int main()
 {
 	int len;
@@ -31,12 +31,12 @@ int main()
 	{
 		if (str[i] == 'F')
 		{
-			//³²ÂÊÀ¸·Î ÀÌµ¿
+			//ë‚¨ìª½ìœ¼ë¡œ ì´ë™
 			curY += dy[dir];
 			curX += dx[dir];
 
 			map[curY][curX] = 1;
-			//¹üÀ§ Á¶Á¤
+			//ë²”ìœ„ ì¡°ì •
 			if (curY > endY)
 				endY = curY;
 			if (curY < startY)
@@ -48,13 +48,13 @@ int main()
 		}
 		else if (str[i] == 'L')
 		{
-			//µ¿ÂÊÀ¸·Î È¸Àü
+			//ë™ìª½ìœ¼ë¡œ íšŒì „
 			dir = (dir+3) % 4;
 
 		}
 		else if (str[i] == 'R')
 		{
-			//¼­ÂÊÀ¸·Î È¸Àü
+			//ì„œìª½ìœ¼ë¡œ íšŒì „
 			dir = (dir + 1) % 4;
 		}
 	}
