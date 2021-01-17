@@ -42,7 +42,7 @@ int main()
 	{
 		scanf("%d", &arr[i]);
 	}
-	printf("Á¶ÇÕ °æ¿ìÀÇ ¼ö  Ãâ·Â\n");
+	printf("ÃÂ¶Ã‡Ã• Â°Ã¦Â¿Ã¬Ã€Ã‡ Â¼Ã¶  ÃƒÃ¢Â·Ã‚\n");
 	comb(arr, 0, 0, N,K);
 
 	return 0;
