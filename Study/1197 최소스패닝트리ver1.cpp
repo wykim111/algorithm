@@ -1,6 +1,6 @@
 /*
-	½ºÆĞ´× Æ®¸®Áß¿¡ ÇÁ¸²¾Ë°í¸®ÁòÀ» ÀÌ¿ë
-	ÇÁ¸²¾Ë°í¸®Áò: ÃÖ¼Ò °£¼±À» °®°í ÀÖ´Â ³ëµåµé¸¸ Ã£¾Æ¼­ ¿¬°á(´ÙÀÍ½ºÆ®¶ó¿Í ÀÏºÎ À¯»ç)
+	ìŠ¤íŒ¨ë‹ íŠ¸ë¦¬ì¤‘ì— í”„ë¦¼ì•Œê³ ë¦¬ì¦˜ì„ ì´ìš©
+	í”„ë¦¼ì•Œê³ ë¦¬ì¦˜: ìµœì†Œ ê°„ì„ ì„ ê°–ê³  ìˆëŠ” ë…¸ë“œë“¤ë§Œ ì°¾ì•„ì„œ ì—°ê²°(ë‹¤ìµìŠ¤íŠ¸ë¼ì™€ ì¼ë¶€ ìœ ì‚¬)
 */
 #include<iostream>
 #include<cstdio>
@@ -10,16 +10,16 @@
 #define INF 123456789
 using namespace std;
 
-vector < pair<int, int>> graph[10001];//Ã¹¹øÂ°´Â ³ëµå, µÎ¹øÂ°´Â ºñ¿ë
+vector < pair<int, int>> graph[10001];//ì²«ë²ˆì§¸ëŠ” ë…¸ë“œ, ë‘ë²ˆì§¸ëŠ” ë¹„ìš©
 
 int V, E;
 int dist[10001];
 int visit[10001];
-int ret = 0;//ÃÖ¼Ò °¡ÁßÄ¡ ÀúÀå
+int ret = 0;//ìµœì†Œ ê°€ì¤‘ì¹˜ ì €ì¥
 
 void prim(int start)
 {
-	//³ëµåº° ºñ¿ë°ú ¹æ¹®¹è¿­ ÃÊ±âÈ­
+	//ë…¸ë“œë³„ ë¹„ìš©ê³¼ ë°©ë¬¸ë°°ì—´ ì´ˆê¸°í™”
 	for (int i = 0; i <= V; i++)
 	{
 		visit[i] = 0;
@@ -27,7 +27,7 @@ void prim(int start)
 	}
 	dist[1] = 0;
 
-	//ÃÖ¼Òºñ¿ëÀÎ ³ëµå Ã£±â
+	//ìµœì†Œë¹„ìš©ì¸ ë…¸ë“œ ì°¾ê¸°
 	for (int i = 1; i <= V; i++)
 	{
 		int min_dist = INF;
@@ -35,7 +35,7 @@ void prim(int start)
 		
 		for (int j = 1; j <= V; j++)
 		{
-			//¹æ¹® ¾È ÇßÀ¸¸é¼­ ÃÖ¼Ò³ëµå¸¦ °®´Â ³ëµå Á¶°Ç
+			//ë°©ë¬¸ ì•ˆ í–ˆìœ¼ë©´ì„œ ìµœì†Œë…¸ë“œë¥¼ ê°–ëŠ” ë…¸ë“œ ì¡°ê±´
 			if (!visit[j] && min_dist > dist[j])
 			{
 				now = j;
@@ -44,13 +44,13 @@ void prim(int start)
 		}
 	
 		visit[now] = 1;
-		ret += min_dist;//ÃÖ¼Ò ³ëµåÀÇ ºñ¿ë ÀúÀå
+		ret += min_dist;//ìµœì†Œ ë…¸ë“œì˜ ë¹„ìš© ì €ì¥
 
 
 		for (int i = 0; i < graph[now].size(); i++)
 		{
-			int next = graph[now][i].first; //ÇöÀç ³ëµå¿Í ¿¬°áµÈ ³ëµåµé
-			int update_cost = graph[now][i].second;//¿¬°áµÈ ³ëµåÀÇ ºñ¿ë
+			int next = graph[now][i].first; //í˜„ì¬ ë…¸ë“œì™€ ì—°ê²°ëœ ë…¸ë“œë“¤
+			int update_cost = graph[now][i].second;//ì—°ê²°ëœ ë…¸ë“œì˜ ë¹„ìš©
 
 			if (!visit[next] && (dist[next] > update_cost))
 			{
