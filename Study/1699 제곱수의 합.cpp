@@ -1,9 +1,9 @@
 /*
-	³À»ö ¾Ë°í¸®Áò
+	ëƒ…ìƒ‰ ì•Œê³ ë¦¬ì¦˜
 
-	-> Àç±Í dp·Î ÇØ°á
+	-> ì¬ê·€ dpë¡œ í•´ê²°
 	https://blog.naver.com/PostView.nhn?blogId=1ilsang&logNo=221415667120&categoryNo=50&parentCategoryNo=0&viewDate=&currentPage=1&postListTopCurrentPage=1&from=postView
-	(´Ù¸¥ Á¢±Ù¹æ¹ı:2Â÷¿ø dp·Î ÇØ°áÇÏ´Â ¹æ¹ı)
+	(ë‹¤ë¥¸ ì ‘ê·¼ë°©ë²•:2ì°¨ì› dpë¡œ í•´ê²°í•˜ëŠ” ë°©ë²•)
 	https://girlfriend-yerin.tistory.com/35
 */
 #include<iostream>
