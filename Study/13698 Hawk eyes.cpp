@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
-#define BIG 2 //Å« °ø
-#define SMALL 1// ÀÛÀº °ø
+#define BIG 2 //í° ê³µ
+#define SMALL 1// ì‘ì€ ê³µ
 
 
 void A(int* a)
@@ -113,7 +113,7 @@ int main()
 			break;
 		}
 	}
-	//ÀÛÀº °ø, ÀÛÀº °ø Ã£±â
+	//ì‘ì€ ê³µ, ì‘ì€ ê³µ ì°¾ê¸°
 	for (int i = 0; i < 4; i++)
 	{
 		if (arr[i] == SMALL)
