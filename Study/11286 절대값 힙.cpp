@@ -6,7 +6,7 @@
 
 using namespace std;
 int N;
-priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> pq;//ÃÖ¼Ò Èü
+priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> pq;//ÃƒÃ–Â¼Ã’ ÃˆÃ¼
 
 
 int main()
