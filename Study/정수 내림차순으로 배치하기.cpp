@@ -11,14 +11,14 @@ long long solution(long long n) {
 	int idx = 0;
 	int arr[10];
 
-	//ÀÚ¸´¼ö Ã£¾Æ³»±â
+	//ìë¦¿ìˆ˜ ì°¾ì•„ë‚´ê¸°
 	while (temp != 0)
 	{
 		temp /= 10;
 		idx++;
 	}
 	//cout << idx << endl;
-	//Å« ¼ö¸¦ ±âÁØÀ¸·Î ³»¸²Â÷¼ø
+	//í° ìˆ˜ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ë‚´ë¦¼ì°¨ìˆœ
 	temp = n;
 	for (int i = 0; i < idx; i++)
 	{
