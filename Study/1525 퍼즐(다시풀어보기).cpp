@@ -1,5 +1,5 @@
 /*
-	Âü°í https://yabmoons.tistory.com/75
+	ì°¸ê³  https://yabmoons.tistory.com/75
 
 */
 #include<iostream>
@@ -13,24 +13,24 @@
 
 using namespace std;
 
-//1Â÷¿ø ¹®ÀÚ¿­ ±âÁØÀ¸·Î »óÇÏ ÁÂ¿ì ºñ±³´Â µ¿¼­³²ºÏ°ú Â÷ÀÌÁ¡ÀÌ ÀÖÀ½
-int ds[] = { 1,-1,3,-3 };//dy, dx¿Í °°ÀÌ 1Â÷¿ø ¹®ÀÚ¿­ÀÌ 2Â÷¿ø Å×ÀÌºí¿¡ ¹¦»ç µÉ¶§ »óÇÏÁÂ¿ì ±¸ºĞÇÏ´Â ¹æ¹ı
+//1ì°¨ì› ë¬¸ìì—´ ê¸°ì¤€ìœ¼ë¡œ ìƒí•˜ ì¢Œìš° ë¹„êµëŠ” ë™ì„œë‚¨ë¶ê³¼ ì°¨ì´ì ì´ ìˆìŒ
+int ds[] = { 1,-1,3,-3 };//dy, dxì™€ ê°™ì´ 1ì°¨ì› ë¬¸ìì—´ì´ 2ì°¨ì› í…Œì´ë¸”ì— ë¬˜ì‚¬ ë ë•Œ ìƒí•˜ì¢Œìš° êµ¬ë¶„í•˜ëŠ” ë°©ë²•
 
-//µ¿¼­³²ºÏ
+//ë™ì„œë‚¨ë¶
 int dy[] = { 0,0,1,-1 };
 int dx[] = { 1,-1,0,0 };
 
 string dest = "123456780";
 string src;
 
-//set ±â¹İ (ÀÌÁøÆ®¸®)
+//set ê¸°ë°˜ (ì´ì§„íŠ¸ë¦¬)
 set<string> visit;
 queue<pair<string, int>> Que;
 int res = 0;
 
 int BFS()
 {
-	//¹æ¹® ¹è¿­·Î ½ÃÀÛ ¹®ÀÚ¿­ ¹æ¹® È®ÀÎ ¹× Å¥¿¡ ÀúÀå
+	//ë°©ë¬¸ ë°°ì—´ë¡œ ì‹œì‘ ë¬¸ìì—´ ë°©ë¬¸ í™•ì¸ ë° íì— ì €ì¥
 	visit.insert(src);
 	Que.push(make_pair(src, 0));
 
@@ -40,7 +40,7 @@ int BFS()
 		int cnt = Que.front().second;
 		Que.pop();
 
-		//¸ñÀûÁö(dest)¿Í ÀÏÄ¡ÇÏ¸é return
+		//ëª©ì ì§€(dest)ì™€ ì¼ì¹˜í•˜ë©´ return
 		if (cur == dest)
 		{
 			return cnt;
@@ -54,16 +54,16 @@ int BFS()
 			int ny = y + dy[i];
 			int nx = x + dx[i];
 
-			//¹üÀ§ ÃÊ°ú ½Ã
+			//ë²”ìœ„ ì´ˆê³¼ ì‹œ
 			if (ny < 0 || ny >= 3 || nx < 0 || nx >= 3)
 			{
 				continue;
 			}
-			//ÇöÀç À§Ä¡ÇÑ »óÅÂÀÇ À§Ä¡¿¡¼­ ´ÙÀ½À§Ä¡·Î ¹Ù²Û´Ù. -> 2Â÷¿ø ¹è¿­ÀÇ Æ÷Áö¼ÇÀ» 1Â÷¿ø Æ÷Áö¼ÇÀ¸·Î º¯È¯ÇÏ¿© Á¢±Ù
+			//í˜„ì¬ ìœ„ì¹˜í•œ ìƒíƒœì˜ ìœ„ì¹˜ì—ì„œ ë‹¤ìŒìœ„ì¹˜ë¡œ ë°”ê¾¼ë‹¤. -> 2ì°¨ì› ë°°ì—´ì˜ í¬ì§€ì…˜ì„ 1ì°¨ì› í¬ì§€ì…˜ìœ¼ë¡œ ë³€í™˜í•˜ì—¬ ì ‘ê·¼
 			string next = cur;
 			swap(next[y * 3 + x], next[ny * 3 + nx]);
 
-			//º¯°æµÈ ¹®ÀÚ¿­ÀÌ ±âÁ¸¿¡ ¾ø´Â °æ¿ì
+			//ë³€ê²½ëœ ë¬¸ìì—´ì´ ê¸°ì¡´ì— ì—†ëŠ” ê²½ìš°
 			if (visit.find(next) == visit.end())
 			{
 				visit.insert(next);
@@ -101,7 +101,7 @@ int main()
 		int cnt = Que.front().second;
 		Que.pop();
 
-		//¸ñÀûÁö(dest)¿Í ÀÏÄ¡ÇÏ¸é return
+		//ëª©ì ì§€(dest)ì™€ ì¼ì¹˜í•˜ë©´ return
 		if (cur == dest)
 		{
 			return cnt;
@@ -115,7 +115,7 @@ int main()
 			int ny = y + dy[i];
 			int nx = x + dx[i];
 
-			//¹üÀ§ ÃÊ°ú ½Ã
+			//ë²”ìœ„ ì´ˆê³¼ ì‹œ
 			if (ny < 0 || ny >= 3 || nx < 0 || nx >= 3)
 			{
 				continue;
@@ -123,7 +123,7 @@ int main()
 			string next = cur;
 			swap(next[y*3 + x], next[ny*3 + nx]);
 
-			//º¯°æµÈ ¹®ÀÚ¿­ÀÌ ±âÁ¸¿¡ ¾ø´Â °æ¿ì
+			//ë³€ê²½ëœ ë¬¸ìì—´ì´ ê¸°ì¡´ì— ì—†ëŠ” ê²½ìš°
 			if (visit.find(next) == visit.end())
 			{
 				visit.insert(next);
