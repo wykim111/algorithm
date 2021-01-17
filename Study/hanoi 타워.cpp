@@ -6,7 +6,7 @@ void hanoi(int num, char from, char to, char other)
 	if (num == 0)
 		return;
 	hanoi(num - 1, from, other, to);
-	printf("%c¿¡¼­ %c·Î ¿Å±ä´Ù\n", from, to);
+	printf("%cÂ¿Â¡Â¼Â­ %cÂ·ÃŽ Â¿Ã…Â±Ã¤Â´Ã™\n", from, to);
 	hanoi(num - 1, other, to, from);
 }
 int main()
