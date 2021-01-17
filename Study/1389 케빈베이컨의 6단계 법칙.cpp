@@ -5,7 +5,7 @@
 using namespace std;
 vector<int> map[51];
 
-int N, M;//³ëµå °£¼±ÀÇ ¼ö
+int N, M;//ë…¸ë“œ ê°„ì„ ì˜ ìˆ˜
 //int map[51][51];
 int visit[51];
 int ret = 1e9;
@@ -21,7 +21,7 @@ void dfs(int start, int dest, int level)
 	}
 	for (int i = 0; i < map[start].size(); i++)
 	{
-		//ÀÌ¹Ì ¹æ¹®ÇÏ°Å³ª °£¼±ÀÌ ¿¬°á ¾È µÈ °æ¿ì
+		//ì´ë¯¸ ë°©ë¬¸í•˜ê±°ë‚˜ ê°„ì„ ì´ ì—°ê²° ì•ˆ ëœ ê²½ìš°
 		if (visit[map[start][i]] == 1)
 			continue;
 		//printf("start = %d i = %d\n", start, i);
