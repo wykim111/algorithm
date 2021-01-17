@@ -9,7 +9,7 @@ int map[4][4];
 int res = 0;
 bool Check_Line(int user)
 {
-	//Á÷¼±(¿ìÃø, ¾Æ·¡)
+	//ì§ì„ (ìš°ì¸¡, ì•„ë˜)
 	for (int i = 1; i < 4; i++)
 	{
 		if (map[i][1] == user)
@@ -24,12 +24,12 @@ bool Check_Line(int user)
 				res = user;
 				return 1;
 			}
-			else if (map[1][1] == map[2][2] && map[2][2] == map[3][3])//´ë°¢¼±
+			else if (map[1][1] == map[2][2] && map[2][2] == map[3][3])//ëŒ€ê°ì„ 
 			{
 				res = user;
 				return 1;
 			}
-			else if (map[3][1] == map[2][2] && map[2][2] == map[1][3])//´ë°¢¼±
+			else if (map[3][1] == map[2][2] && map[2][2] == map[1][3])//ëŒ€ê°ì„ 
 			{
 				res = user;
 				return 1;
