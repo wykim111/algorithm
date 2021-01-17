@@ -4,15 +4,15 @@
 #include<cstring>
 #include<algorithm>
 using namespace std;
-// ¿òÁ÷ÀÌ´Âµ¥ ÇÊ¿äÇÑ ÃÖ¼Ò:
-int Distance[20][20];   // Ã¹¹øÂ°¿¡¼­ µÎ¹øÂ°·Î °¡´Â °Å¸®
+// ì›€ì§ì´ëŠ”ë° í•„ìš”í•œ ìµœì†Œ:
+int Distance[20][20];   // ì²«ë²ˆì§¸ì—ì„œ ë‘ë²ˆì§¸ë¡œ ê°€ëŠ” ê±°ë¦¬
 bool isarrived[20];
-bool isExist[20];       // Á¸ÀçÇÏ´ÂÁö
+bool isExist[20];       // ì¡´ì¬í•˜ëŠ”ì§€
 
-						// ÇöÀç curIndex¿¡¼­ ´ÙÀ½À§Ä¡¸¦ °í¸£¸é µÇ°í,
-						// ÇöÀç±îÁö ½×ÀÎ distance´Â curDistÀÌ°í
-						// ÇöÀç±îÁö ¿Ï·áµÈ Count´Â curCount
-						// ¿Ï·áµÇ¾î¾ßÇÒ °³¼ö´Â maxCount
+						// í˜„ì¬ curIndexì—ì„œ ë‹¤ìŒìœ„ì¹˜ë¥¼ ê³ ë¥´ë©´ ë˜ê³ ,
+						// í˜„ì¬ê¹Œì§€ ìŒ“ì¸ distanceëŠ” curDistì´ê³ 
+						// í˜„ì¬ê¹Œì§€ ì™„ë£Œëœ CountëŠ” curCount
+						// ì™„ë£Œë˜ì–´ì•¼í•  ê°œìˆ˜ëŠ” maxCount
 int TotalMinDistance = 10000;
 int stringSize;
 
@@ -21,15 +21,15 @@ void recursive(int curIndex, int curDist, int curCount, int maxCount) {
 #ifdef debug
 	cout << curIndex << " " << curDist << " " << curCount << " " << maxCount << endl;
 #endif
-	// ÀÌ¹Ì ¿Ô´ø°÷ÀÌ¶ó¸é return
+	// ì´ë¯¸ ì™”ë˜ê³³ì´ë¼ë©´ return
 	if (isarrived[curIndex])
 		return;
 
-	// dist°¡ ÃÊ°ú¶ó¸é return
+	// distê°€ ì´ˆê³¼ë¼ë©´ return
 	if (curDist > TotalMinDistance)
 		return;
 
-	// ¸ğµÎ ¿Ï·á µÇ¾ú´Ù¸é update ÈÄ return
+	// ëª¨ë‘ ì™„ë£Œ ë˜ì—ˆë‹¤ë©´ update í›„ return
 	if (curCount >= maxCount) {
 
 		cout << curIndex << " " << maxCount << endl;
@@ -42,7 +42,7 @@ void recursive(int curIndex, int curDist, int curCount, int maxCount) {
 
 	isarrived[curIndex] = true;
 
-	// ÇöÀçÀ§Ä¡¿¡¼­ °¡¾ßÇÒ °÷ Áß¿¡¼­, °¥¼öÀÖ´Â°÷ ¸ğµÎ °¡º¸±â
+	// í˜„ì¬ìœ„ì¹˜ì—ì„œ ê°€ì•¼í•  ê³³ ì¤‘ì—ì„œ, ê°ˆìˆ˜ìˆëŠ”ê³³ ëª¨ë‘ ê°€ë³´ê¸°
 	for (int i = 0; i < stringSize; i++) {
 		if (isExist[i] && !isarrived[i]) {
 			recursive(i, curDist + Distance[curIndex][i], curCount + 1, maxCount);
@@ -57,7 +57,7 @@ int solution(string name) {
 	memset(isarrived, false, sizeof(isarrived));
 	memset(isExist, false, sizeof(isExist));
 
-	// °¡¾ßÇÏ´Â°÷ÀÇ ÀÎµ¦½ºµéÀ» °¡Á®¿Â´Ù
+	// ê°€ì•¼í•˜ëŠ”ê³³ì˜ ì¸ë±ìŠ¤ë“¤ì„ ê°€ì ¸ì˜¨ë‹¤
 	int TotCount = 0;
 	for (int i = 0; i < name.size(); i++) {
 		if (name[i] != 'A') {
@@ -66,7 +66,7 @@ int solution(string name) {
 		}
 	}
 
-	// ÇØ´ç start¿¡¼­ end·Î °¡´Â ÃÖ¼Ò°Å¸®¸¦ ±¸ÇÑ´Ù.
+	// í•´ë‹¹ startì—ì„œ endë¡œ ê°€ëŠ” ìµœì†Œê±°ë¦¬ë¥¼ êµ¬í•œë‹¤.
 	for (int startNum = 0; startNum < name.size(); startNum++) {
 		for (int endNum = 0; endNum < name.size(); endNum++) {
 			int mindist = min(abs(startNum - endNum), stringSize - abs(startNum - endNum));
@@ -77,14 +77,14 @@ int solution(string name) {
 
 	recursive(0, 0, 1, TotCount);
 
-	// ¾ËÆÄºªÀ» ¸¸µå´Âµ¥ ÇÊ¿äÇÑ Å¬¸¯¼ö ±¸ÇÏ±â
+	// ì•ŒíŒŒë²³ì„ ë§Œë“œëŠ”ë° í•„ìš”í•œ í´ë¦­ìˆ˜ êµ¬í•˜ê¸°
 	for (int i = 0; i < name.size(); i++) {
 		int Count = min(abs(name[i] - 'A'), abs('Z' - name[i] + 1));
 		answer += Count;
 	}
 
 #ifdef debug
-	cout << "ÀÌµ¿°Å¸®:" << TotalMinDistance << " ÃÖ¼ÒÅ¬¸¯¼ö:" << answer << endl;
+	cout << "ì´ë™ê±°ë¦¬:" << TotalMinDistance << " ìµœì†Œí´ë¦­ìˆ˜:" << answer << endl;
 #endif
 	return answer + TotalMinDistance;
 }
