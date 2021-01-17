@@ -10,7 +10,7 @@ int dfs(vector<int> numbers, int target, int idx, int sum)
 
 	if (idx == numbers.size() && sum != target)
 		return 0;
-	//+¸¦ ¿¬»êÇÑ °æ¿ì¿Í -¸¦ ¿¬»êÇÑ °æ¿ì·Î ³ª´©¾î target¿¡ ¸¸Á·ÇÏ´Â °æ¿ì¸¦ Å½»öÇÑ´Ù.
+	//+ë¥¼ ì—°ì‚°í•œ ê²½ìš°ì™€ -ë¥¼ ì—°ì‚°í•œ ê²½ìš°ë¡œ ë‚˜ëˆ„ì–´ targetì— ë§Œì¡±í•˜ëŠ” ê²½ìš°ë¥¼ íƒìƒ‰í•œë‹¤.
 	return dfs(numbers, target, idx + 1, sum + numbers[idx]) + dfs(numbers, target, idx + 1, sum - numbers[idx]);
 }
 
