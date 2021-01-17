@@ -6,8 +6,8 @@ int N,M;
 typedef struct _data
 {
 	int num;
-	int key;//M°³ÀÇ ¼ø¼­ º¸Àå
-	int flag;//M°³Áß¿¡ N°³¿Í ÀÏÄ¡ÇÏ´Â°Ô ÀÖ´ÂÁö ¾ø´ÂÁö Ã¼Å©
+	int key;//Mê°œì˜ ìˆœì„œ ë³´ì¥
+	int flag;//Mê°œì¤‘ì— Nê°œì™€ ì¼ì¹˜í•˜ëŠ”ê²Œ ìˆëŠ”ì§€ ì—†ëŠ”ì§€ ì²´í¬
 }Data;
 
 int cmp1(const void* p1, const void* p2)
@@ -15,7 +15,7 @@ int cmp1(const void* p1, const void* p2)
 	Data* D1 = (Data*)p1;
 	Data* D2 = (Data*)p2;
 	
-	//¿À¸§Â÷¼ø
+	//ì˜¤ë¦„ì°¨ìˆœ
 	return (D1->num - D2->num);
 }
 int cmp2(const void* p1, const void* p2)
@@ -23,7 +23,7 @@ int cmp2(const void* p1, const void* p2)
 	Data* D1 = (Data*)p1;
 	Data* D2 = (Data*)p2;
 
-	//¿À¸§Â÷¼ø
+	//ì˜¤ë¦„ì°¨ìˆœ
 	return (D1->key - D2->key);
 }
 void BinarySearch(Data* arr, int num)
@@ -37,7 +37,7 @@ void BinarySearch(Data* arr, int num)
 		
 		if (arr[mid].num == num)
 		{
-			arr[mid].flag = 1;//M°³ÀÇ ¹è¿­¿¡ ÀÖ´ÂÁö Ã¼Å©
+			arr[mid].flag = 1;//Mê°œì˜ ë°°ì—´ì— ìˆëŠ”ì§€ ì²´í¬
 			return;
 		}
 		else if (arr[mid].num < num)
