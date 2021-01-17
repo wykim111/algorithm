@@ -11,7 +11,7 @@ queue<int> Q;
 
 void dfs(int cnt,int start)
 {
-	//³ëµåÅ½»öÀ» ÃÊ°úÇÒ °æ¿ì
+	//Â³Ã«ÂµÃ¥Ã…Â½Â»Ã¶Ã€Â» ÃƒÃŠÂ°ÃºÃ‡Ã’ Â°Ã¦Â¿Ã¬
 	if (cnt == N)
 		return;
 	visit[start] = true;
