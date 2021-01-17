@@ -13,7 +13,7 @@ void wy_strcpy(char* str1, char* str2)
 {
 	int len2 = strlen(str2);
 	int i;
-	for (i = 0;i <= len2; i++) // NULL±îÁö º¹»ç
+	for (i = 0;i <= len2; i++) // NULLê¹Œì§€ ë³µì‚¬
 	{
 		str1[i] = str2[i];
 	}
@@ -42,12 +42,12 @@ int main()
 	int Find_ID;
 	int N;
 
-	printf("ÇÐ»ýÀÇ ¼ö ÀÔ·Â:");
+	printf("í•™ìƒì˜ ìˆ˜ ìž…ë ¥:");
 	scanf("%d", &N);
 	for (int i = 0; i < N; i++)
 	{
 		memset(stu_name, 0, sizeof(stu_name));
-		printf("ÇÐ»ýÀÇid¿Í ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä\n");
+		printf("í•™ìƒì˜idì™€ ì´ë¦„ì„ ìž…ë ¥í•˜ì„¸ìš”\n");
 		scanf("%d %s", &stu_id, &stu_name);
 
 		while (getchar() != '\n');
@@ -57,23 +57,23 @@ int main()
 		wy_strcpy(student[bucket].name, stu_name);
 	}
 	
-	printf("°ËÁõ\n");
+	printf("ê²€ì¦\n");
 	for (int i = 0; i < 100; i++)
 	{
 		if(student[i].id != 0)
-			printf("ÇØ½Ã:%d ID: %d ÀÌ¸§:%s\n", hash(student[i].id), student[i].id, student[i].name);
+			printf("í•´ì‹œ:%d ID: %d ì´ë¦„:%s\n", hash(student[i].id), student[i].id, student[i].name);
 	}
 	
 	
-	printf("\nÃ£°í½ÍÀº ID ÀÔ·Â:");
+	printf("\nì°¾ê³ ì‹¶ì€ ID ìž…ë ¥:");
 	scanf("%d", &Find_ID);
 	if (find_key(Find_ID) == 1)
 	{	
 		bucket = hash(Find_ID);
-		printf("¸ÅÄªµÇ´Â Å° Á¸Àç:%s\n", student[bucket].name);
+		printf("ë§¤ì¹­ë˜ëŠ” í‚¤ ì¡´ìž¬:%s\n", student[bucket].name);
 	}
 	else
-		printf("ÀÏÄ¡ÇÏ´Â id°¡ ¾ø½À´Ï´Ù\n");
+		printf("ì¼ì¹˜í•˜ëŠ” idê°€ ì—†ìŠµë‹ˆë‹¤\n");
 
 
 	return 0;
