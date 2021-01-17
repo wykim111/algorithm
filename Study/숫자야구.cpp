@@ -36,7 +36,7 @@ int solution(vector<vector<int>> baseball) {
 				}//for b
 			
 			}//for a
-			//out Á¶»ç
+			//out ÃÂ¶Â»Ã§
 			for (int c = 0; c < 3; c++)
 			{
 				if (Input_NUM[0] != Pick_NUM[c] && Input_NUM[1] != Pick_NUM[c] && Input_NUM[2] != Pick_NUM[c])
