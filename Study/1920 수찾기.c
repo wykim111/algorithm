@@ -11,8 +11,8 @@ void MergeSort(int left, int mid, int right)
 	int* temp = (int*)malloc(sizeof(int)*(right + 1));
 	int Merge_Idx = left;
 
-	//Àü¸é ÀÎµ¦½º´Â midÀÎµ¦½º ÀÌÇÏ, ÈÄ¸éÀÎµ¦½º´Â rightÀÎµ¦½º ÀÌÇÏ·Î Å½»ö
-	//Àü¸éÀÎµ¦½º·Ö ÈÄ¸éÀÎµ¦½ºÀÇ µ¥ÀÌÅÍ ºñ±³(¿À¸§Â÷¼ø±âÁØ)
+	//ì „ë©´ ì¸ë±ìŠ¤ëŠ” midì¸ë±ìŠ¤ ì´í•˜, í›„ë©´ì¸ë±ìŠ¤ëŠ” rightì¸ë±ìŠ¤ ì´í•˜ë¡œ íƒìƒ‰
+	//ì „ë©´ì¸ë±ìŠ¤ë¡¸ í›„ë©´ì¸ë±ìŠ¤ì˜ ë°ì´í„° ë¹„êµ(ì˜¤ë¦„ì°¨ìˆœê¸°ì¤€)
 
 	while (fIdx <= mid && rIdx <= right)
 	{
@@ -22,7 +22,7 @@ void MergeSort(int left, int mid, int right)
 			temp[Merge_Idx++] = arr[rIdx++];
 	}
 
-	//fidx È¤Àº ridx¿¡¼­ ¾ÆÁ÷ Á¤·ÄÇÒ µ¥ÀÌÅÍ°¡ ³²¾ÆÀÖ´Â °æ¿ì
+	//fidx í˜¹ì€ ridxì—ì„œ ì•„ì§ ì •ë ¬í•  ë°ì´í„°ê°€ ë‚¨ì•„ìˆëŠ” ê²½ìš°
 
 	if (fIdx > mid)
 	{
@@ -90,9 +90,9 @@ int main()
 	
 	partition(0, N - 1);
 	/*
-		Á¤·Ä Àß µÇ¾ú´ÂÁö Ã¼Å©
+		ì •ë ¬ ì˜ ë˜ì—ˆëŠ”ì§€ ì²´í¬
 	
-	printf("º´ÇÕÁ¤·Ä ÁøÇà\n");
+	printf("ë³‘í•©ì •ë ¬ ì§„í–‰\n");
 	
 	for (int i = 0; i < N; i++)
 	{
