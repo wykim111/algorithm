@@ -1,5 +1,5 @@
 /*
-	¼¼±×¸ÕÆ® Æ®¸® ÀÀ¿ë
+	ì„¸ê·¸ë¨¼íŠ¸ íŠ¸ë¦¬ ì‘ìš©
 
 */
 #include<stdio.h>
@@ -9,11 +9,11 @@ int arr[100001];
 int seg[100001 * 4];
 int cnt = 0;
 
-//°¢ ±¸°£ÀÇ ³ëµåµé ÃÊ±âÈ­
+//ê° êµ¬ê°„ì˜ ë…¸ë“œë“¤ ì´ˆê¸°í™”
 int init(int node,int left,int right)
 {
 	cnt++;
-	//ÀÚ±â ÀÚ½ÅÀÇ ³ëµå¸¦ Ã£´Â °æ¿ì
+	//ìžê¸° ìžì‹ ì˜ ë…¸ë“œë¥¼ ì°¾ëŠ” ê²½ìš°
 	if (left == right)
 	{
 		//printf("left =%d, %d\n", left, arr[left]);
@@ -27,10 +27,10 @@ int init(int node,int left,int right)
 
 int query(int node, int left, int right, int low, int high)
 {
-	//ÁöÁ¤µÈ ¹üÀ§¸¦ ¹þ¾î³­ °æ¿ì
+	//ì§€ì •ëœ ë²”ìœ„ë¥¼ ë²—ì–´ë‚œ ê²½ìš°
 	if (left > high || right < low)
 		return 0;
-	//ÁöÁ¤µÈ ¹üÀ§ ³»¿¡ ¼ÓÇÏ´Â °æ¿ì
+	//ì§€ì •ëœ ë²”ìœ„ ë‚´ì— ì†í•˜ëŠ” ê²½ìš°
 	if (low <= left && right <= high)
 	{
 		return seg[node];
