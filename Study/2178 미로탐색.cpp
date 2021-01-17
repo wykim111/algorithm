@@ -1,5 +1,5 @@
 /*
-	1ÀÎÁö¿ªÀ» BFS·Î Å½»öÇÏ´Âµ¥ visit ¹æ¹®¹è¿­·Î °¢°¢ÀÇ °Å¸®¸¦ °»½ÅÇÏµµ·Ï ÇÔ
+	1ì¸ì§€ì—­ì„ BFSë¡œ íƒìƒ‰í•˜ëŠ”ë° visit ë°©ë¬¸ë°°ì—´ë¡œ ê°ê°ì˜ ê±°ë¦¬ë¥¼ ê°±ì‹ í•˜ë„ë¡ í•¨
 */
 #include<iostream>
 #include<queue>
@@ -10,7 +10,7 @@ int N, M;
 int map[100][100];
 int visit[100][100];
 queue<pair<int, int>> Que;
-//µ¿¼­³²ºÏ
+//ë™ì„œë‚¨ë¶
 int dy[] = { 0,0,1,-1 };
 int dx[] = { 1,-1,0,0 };
 //int min_ret = 9999999;
@@ -32,10 +32,10 @@ void bfs(int y, int x)
 			int nextY = curY + dy[i];
 			int nextX = curX + dx[i];
 
-			//¸ÊÀÇ ¹üÀ§ ¹ş¾î³ª´Â °æ¿ì
+			//ë§µì˜ ë²”ìœ„ ë²—ì–´ë‚˜ëŠ” ê²½ìš°
 			if (nextY < 0 || nextY >= M || nextX < 0 || nextX >= N)
 				continue;
-			//¸ÊÀº 1·Î Åë°úÇÒ ¼ö ÀÖ´Â Åë·ÎÀÌ¸é¼­ ¹æ¹®ÇÏÁö ¾ÊÀº À§Ä¡(visit[][]Àº 0À¸·Î ÃÊ±âÈ­ µÇ¾î ÀÖ´Ù)
+			//ë§µì€ 1ë¡œ í†µê³¼í•  ìˆ˜ ìˆëŠ” í†µë¡œì´ë©´ì„œ ë°©ë¬¸í•˜ì§€ ì•Šì€ ìœ„ì¹˜(visit[][]ì€ 0ìœ¼ë¡œ ì´ˆê¸°í™” ë˜ì–´ ìˆë‹¤)
 			if (map[nextY][nextX] == 1 && visit[nextY][nextX] == 0)
 			{
 				visit[nextY][nextX] = visit[curY][curX] + 1;
