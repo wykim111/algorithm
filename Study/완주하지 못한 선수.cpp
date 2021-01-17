@@ -10,26 +10,26 @@ vector<string>::iterator iter;
 
 string solution(vector<string> participant, vector<string> completion) {
 	string answer = "";
-	//Âü°¡ÀÚµéÀÇ ¸®½ºÆ®¸¦ ¸Ê¿¡ ÀúÀå
+	//ì°¸ê°€ìë“¤ì˜ ë¦¬ìŠ¤íŠ¸ë¥¼ ë§µì— ì €ì¥
 	for ( iter = participant.begin() ; iter != participant.end(); iter++)
 	{
 		mp[*iter]++;
 	}
 
-	//µµÂøÇÑ »ç¶÷Àº <Å°,°ª>¿¡¼­ °ªÀÌ 0
+	//ë„ì°©í•œ ì‚¬ëŒì€ <í‚¤,ê°’>ì—ì„œ ê°’ì´ 0
 	for (iter = completion.begin(); iter != completion.end(); iter++)
 	{
 		mp[*iter]--;
 	}
-	//¿ÏÁÖÇÏÁö ¸øÇÑ »ç¶÷
-	//<Å°.°ª> ÇöÀç »óÅÂ Á¶È¸
+	//ì™„ì£¼í•˜ì§€ ëª»í•œ ì‚¬ëŒ
+	//<í‚¤.ê°’> í˜„ì¬ ìƒíƒœ ì¡°íšŒ
 	/*
 	for (auto i = mp.begin(); i != mp.end(); i++)
 	{
 		cout << i->first << " " << i->second << '\n';
 	}
 	*/
-	//¿ÏÁÖÇÏÁö ¸øÇÑ »ç¶÷ ¸í´Ü ÀúÀå
+	//ì™„ì£¼í•˜ì§€ ëª»í•œ ì‚¬ëŒ ëª…ë‹¨ ì €ì¥
 	for (auto i = mp.begin(); i != mp.end(); i++)
 	{
 		if (i->second != 0)
