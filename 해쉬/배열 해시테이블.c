@@ -41,11 +41,11 @@ int main()
 
 	if (ret != 0)
 	{
-		printf("dataÀÇ Å°°ªÀ» Ã£¾Ò½À´Ï´Ù: %d\n",hash(data));
+		printf("dataì˜ í‚¤ê°’ì„ ì°¾ì•˜ìŠµë‹ˆë‹¤: %d\n",hash(data));
 	}
 	else
 	{
-		printf("ÇØ´ç Å° °ªÀ» Ã£À» ¼ö ¾ø½À´Ï´Ù\n");
+		printf("í•´ë‹¹ í‚¤ ê°’ì„ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤\n");
 	}
 	
 	return 0;
