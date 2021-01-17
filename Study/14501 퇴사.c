@@ -27,7 +27,7 @@ int go(int today , int sum)
 	}
 	
 	
-	//ÇöÀç »ó´ãÀ» ¼±ÅÃÇÏÁö ¾Ê´Â °æ¿ì,ÇöÀç  »ó´ãÀ» ¼±ÅÃÇÏ´Â °æ¿ì
+	//í˜„ìž¬ ìƒë‹´ì„ ì„ íƒí•˜ì§€ ì•ŠëŠ” ê²½ìš°,í˜„ìž¬  ìƒë‹´ì„ ì„ íƒí•˜ëŠ” ê²½ìš°
 	go(today + 1, sum);
 
 	//if (today + T[today] <= N)
