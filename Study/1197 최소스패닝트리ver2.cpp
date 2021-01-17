@@ -6,7 +6,7 @@
 
 #define INF 1234567
 using namespace std;
-vector<pair<int, int>> graph[10001];//Ã¹¹øÂ°´Â ¿¬°áµÈ ³ëµå, µÎ¹øÂ°´Â ¿¬°áµÈ ³ëµåÀÇ ºñ¿ë
+vector<pair<int, int>> graph[10001];//ì²«ë²ˆì§¸ëŠ” ì—°ê²°ëœ ë…¸ë“œ, ë‘ë²ˆì§¸ëŠ” ì—°ê²°ëœ ë…¸ë“œì˜ ë¹„ìš©
 int visit[10001];
 priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
 int V, E;
@@ -15,7 +15,7 @@ int ret = 0;
 void prim(int start)
 {
 	visit[start] = 1;
-	//½ÃÀÛÁöÁ¡°ú ¿¬°áµÈ ³ëµåµéÀ» pq¿¡ push
+	//ì‹œì‘ì§€ì ê³¼ ì—°ê²°ëœ ë…¸ë“œë“¤ì„ pqì— push
 	for (int i = 0; i < graph[start].size(); i++)
 	{
 		int next = graph[start][i].first;
@@ -29,12 +29,12 @@ void prim(int start)
 		int now_dist = pq.top().first;
 
 		pq.pop();
-		if (visit[now] == 1)	//2->3, 1->3°ú °°ÀÌ ¿ì¼±¼øÀ§Å¥¿¡ ÀÇÇØ ¸ÕÀú ¹æ¹®ÇÑ °æ¿ì ½ºÅµ
+		if (visit[now] == 1)	//2->3, 1->3ê³¼ ê°™ì´ ìš°ì„ ìˆœìœ„íì— ì˜í•´ ë¨¼ì € ë°©ë¬¸í•œ ê²½ìš° ìŠ¤í‚µ
 			continue;
 		visit[now] = 1;
 		ret += now_dist;
 
-		//ÇöÀç ³ëµå¿Í ¿¬°áµÈ ³ëµåµé pq¿¡ push
+		//í˜„ì¬ ë…¸ë“œì™€ ì—°ê²°ëœ ë…¸ë“œë“¤ pqì— push
 		for (int i = 0; i < graph[now].size(); i++)
 		{
 			int after = graph[now][i].first;
