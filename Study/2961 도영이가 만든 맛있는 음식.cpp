@@ -1,5 +1,5 @@
 /*
-	Á¶ÇÕ È°¿ë
+	ì¡°í•© í™œìš©
 */
 #include<iostream>
 #include<cstdio>
@@ -8,11 +8,11 @@
 using namespace std;
 
 int N;
-int sourness[11]; //½Å¸À
-int bitter[11];//¾´¸À
+int sourness[11]; //ì‹ ë§›
+int bitter[11];//ì“´ë§›
 long long int ret = 1e9;
 
-//idx¿Í rÀº »ÌÀ» °¹¼ö,s¿Í b´Â ¼±ÅÃÇÏ°Å³ª ¼±ÅÃ ¾È ÇÑ °æ¿ì ¿¬»êµÇ´Â ¼ö
+//idxì™€ rì€ ë½‘ì„ ê°¯ìˆ˜,sì™€ bëŠ” ì„ íƒí•˜ê±°ë‚˜ ì„ íƒ ì•ˆ í•œ ê²½ìš° ì—°ì‚°ë˜ëŠ” ìˆ˜
 void go(int idx, int r, long long int s, long long int b)
 {
 	if (idx == r)
@@ -26,9 +26,9 @@ void go(int idx, int r, long long int s, long long int b)
 		return;
 	}
 	/*
-	//ÇöÀç  Àç·á¸¦ ¼±ÅÃÇÏ´Â °æ¿ì
+	//í˜„ì¬  ì¬ë£Œë¥¼ ì„ íƒí•˜ëŠ” ê²½ìš°
 	go(idx + 1, s*sourness[idx], b + bitter[idx]);
-	//ÇöÀç Àç·á¸¦ ¼±ÅÃ ÇÏÁö ¾ÊÀº °æ¿ì
+	//í˜„ì¬ ì¬ë£Œë¥¼ ì„ íƒ í•˜ì§€ ì•Šì€ ê²½ìš°
 	go(idx + 1, s, b);
 	*/
 	for (int i = idx + 1; i < N; i++)
@@ -45,9 +45,9 @@ int main()
 	{
 		scanf("%d %d", &sourness[i], &bitter[i]);
 	}
-	for (int i = 0; i < N; i++)//r°³ ¼±ÅÃÇÏ´Â °æ¿ì
+	for (int i = 0; i < N; i++)//rê°œ ì„ íƒí•˜ëŠ” ê²½ìš°
 	{
-		for (int j = 0; j < N; j++)//¼±ÅÃÇÑ ÈÄ Á¶ÇÕ ÁøÇà
+		for (int j = 0; j < N; j++)//ì„ íƒí•œ í›„ ì¡°í•© ì§„í–‰
 		{
 			go(j, i, sourness[j], bitter[j]);
 		}
