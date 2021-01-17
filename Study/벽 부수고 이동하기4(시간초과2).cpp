@@ -13,11 +13,11 @@ int visit2[1001][1001] = { 0, };
 int group_Table[1001*1001] = { 0, };
 int group_Check[1001*1001] = { 0, };
 
-int temp[1001][1001] = { 0, };//0ÀÎ ¿µ¿ª tag¸¦ ºÙ¿© ÀúÀå
+int temp[1001][1001] = { 0, };//0ì¸ ì˜ì—­ tagë¥¼ ë¶™ì—¬ ì €ì¥
 
 queue<pair<int, int>> Que1;
 queue<pair<int, int>> Que2;
-//µ¿¼­³²ºÏ
+//ë™ì„œë‚¨ë¶
 int dy[] = { 0,0,1,-1 };
 int dx[] = { 1,-1,0,0 };
 
@@ -30,7 +30,7 @@ int is_range(int ny, int nx)
 	return 1;
 }
 /*
-	ÇØ´ç À§Ä¡°¡ 0ÀÎ °æ¿ì
+	í•´ë‹¹ ìœ„ì¹˜ê°€ 0ì¸ ê²½ìš°
 */
 void BFS(int y,int x)
 {
@@ -74,13 +74,13 @@ void input()
 			
 			if (map[i][j] == 1)
 			{
-				//1ÀÎ ÁöÁ¡ Å¥¿¡ ¹Ì¸® ÀúÀå
+				//1ì¸ ì§€ì  íì— ë¯¸ë¦¬ ì €ì¥
 				Que1.push(make_pair(i,j));
 			}
 		}
 	}
 	/*
-	printf("map º¯È¯\n");
+	printf("map ë³€í™˜\n");
 	for (int i = 0; i < N; i++)
 	{
 		for (int j = 0; j < M; j++)
@@ -121,7 +121,7 @@ void Process()
 		{
 			if (map[i][j] == 0 && visit1[i][j] == 0)
 			{
-				//	printf("ÁøÀÔ\n");
+				//	printf("ì§„ì…\n");
 				DFS(i, j,cnt);
 				cnt++;
 			}
@@ -133,7 +133,7 @@ void Process()
 	{
 		for (int j = 0; j < M; j++)
 		{
-			//¿µ¿ªÀ¸·Î ¹­Àº °¢ ¿µ¿ªµéÀÇ '0'ÀÇ °³¼ö ÀúÀå
+			//ì˜ì—­ìœ¼ë¡œ ë¬¶ì€ ê° ì˜ì—­ë“¤ì˜ '0'ì˜ ê°œìˆ˜ ì €ì¥
 			group_Table[temp[i][j]]++;
 		}
 
@@ -147,7 +147,7 @@ void Process()
 		{
 			if (map[i][j] == 1 && visit1[i][j] == 0)
 			{
-			//	printf("ÁøÀÔ\n");
+			//	printf("ì§„ì…\n");
 				BFS(i, j);
 			}
 		}
