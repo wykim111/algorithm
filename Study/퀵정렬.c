@@ -20,7 +20,7 @@ int quicksort(int* a, int left, int right)
 	int lo = left+1;
 	int hi = right;
 
-	printf("\n[ %d´Ü°è]: pivot=%d]\n", ++cnt, pivot);
+	printf("\n[ %dë‹¨ê³„]: pivot=%d]\n", ++cnt, pivot);
 
 	while (lo <= hi)
 	{
@@ -37,7 +37,7 @@ int quicksort(int* a, int left, int right)
 
 	}//while
 
-	//L==RÀÎ °æ¿ì
+	//L==Rì¸ ê²½ìš°
 	swap(a, left, hi);
 
 	for (int t = 0; t <= right; t++)
@@ -55,8 +55,8 @@ void partition(int* a,int left,int right)
 	{
 		int pivot;
 		pivot = quicksort(a, left, right);
-		partition(a, left, pivot - 1);//pivot ±âÁØ ¿ÞÂÊ ¿µ¿ª
-		partition(a, pivot + 1, right);//pivot ±âÁØ ¿À¸¥ÂÊ ¿µ¿ª
+		partition(a, left, pivot - 1);//pivot ê¸°ì¤€ ì™¼ìª½ ì˜ì—­
+		partition(a, pivot + 1, right);//pivot ê¸°ì¤€ ì˜¤ë¥¸ìª½ ì˜ì—­
 	}
 }
 
@@ -75,7 +75,7 @@ int main()
 
 	partition(arr, 0, N - 1);
 
-	printf("\nÃâ·Â°á°ú Á¶È¸\n");
+	printf("\nì¶œë ¥ê²°ê³¼ ì¡°íšŒ\n");
 
 	for (int i = 0; i < N; i++)
 	{
