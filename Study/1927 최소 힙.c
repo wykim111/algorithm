@@ -9,7 +9,7 @@ void heapify(int root)
 	int left = root * 2;
 	int right = (root * 2) + 1;
 
-	//rootº¸´Ù ÀÛÀº ÀÚ½Ä ³ëµåÀÇ ÀÎµ¦½º Å½»ö
+	//rootë³´ë‹¤ ì‘ì€ ìì‹ ë…¸ë“œì˜ ì¸ë±ìŠ¤ íƒìƒ‰
 	if (left <= size && arr[minIdx] > arr[left])
 	{
 		minIdx = left;
@@ -19,7 +19,7 @@ void heapify(int root)
 		minIdx = right;
 	}
 
-	//ÃÖ¼Ú°ªÀ» °¡Áø ÀÎµ¦½º¸¦ Ã£Àº °æ¿ì ºÎ¸ğ³ëµå·Î ¿Ã¸²
+	//ìµœì†Ÿê°’ì„ ê°€ì§„ ì¸ë±ìŠ¤ë¥¼ ì°¾ì€ ê²½ìš° ë¶€ëª¨ë…¸ë“œë¡œ ì˜¬ë¦¼
 	if (minIdx != root)
 	{
 		int temp;
