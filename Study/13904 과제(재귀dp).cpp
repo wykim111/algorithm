@@ -1,7 +1,7 @@
 /*
 	https://sejinik.tistory.com/46
-	dp Àç±Í¸¦ ÅëÇÑ ³À»ö ÇØ°á °úÁ¤
-	dp[n¹ø¤Š °úÁ¦][ÇöÀç½Ã°£]
+	dp ì¬ê·€ë¥¼ í†µí•œ ëƒ…ìƒ‰ í•´ê²° ê³¼ì •
+	dp[në²ˆÂŠ ê³¼ì œ][í˜„ì¬ì‹œê°„]
 */
 #include <iostream>
 #include <cstring>
@@ -13,7 +13,7 @@ int n, d[1010][1010];
 vector<pair<int, int>> vt;
 
 int go(int idx, int t) {
-	printf("ÇöÀçÀÎµ¦½º=%d, ÇöÀç ½Ã°£ = %d\n", idx, t);
+	printf("í˜„ì¬ì¸ë±ìŠ¤=%d, í˜„ì¬ ì‹œê°„ = %d\n", idx, t);
 	if (idx == n || t > 1000) return 0;
 
 	int&ret = d[idx][t];
@@ -42,7 +42,7 @@ int main()
 	*/
 	printf("%d\n", go(0, 1));
 	
-	printf("d µ¥ÀÌÅÍ Á¶È¸\n");
+	printf("d ë°ì´í„° ì¡°íšŒ\n");
 
 	for (int i = 0; i < 10; i++)
 	{
