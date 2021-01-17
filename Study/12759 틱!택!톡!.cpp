@@ -13,7 +13,7 @@ int dy[] = { 0,0,1,-1,-1,-1,1,1 };
 int dx[] = { 1,-1,0,0,1,-1,1,-1 };
 int flag = 0;
 
-//¿ì
+//ìš°
 bool check_right(int y, int x, int user,int cnt)
 {
 	while (x < 4 && map[y][x] == user)
@@ -29,7 +29,7 @@ bool check_right(int y, int x, int user,int cnt)
 
 	return 0;
 }
-//¾Æ·¡
+//ì•„ëž˜
 bool check_down(int y, int x, int user, int cnt)
 {
 	while (y < 4 && map[y][x] == user)
@@ -44,7 +44,7 @@ bool check_down(int y, int x, int user, int cnt)
 	}
 	return 0;
 }
-//¿ì»ó
+//ìš°ìƒ
 bool check_rightup(int y, int x, int user, int cnt)
 {
 	while ((x < 4 && y > 0) && map[y][x] == user)
@@ -60,7 +60,7 @@ bool check_rightup(int y, int x, int user, int cnt)
 	}
 	return 0;
 }
-//¿ìÇÏ
+//ìš°í•˜
 bool check_rightdown(int y, int x, int user, int cnt)
 {
 	while ( (x < 4 && y <4) && map[y][x] == user)
@@ -78,12 +78,12 @@ bool check_rightdown(int y, int x, int user, int cnt)
 }
 void Check_Line(int y, int x, int user)
 {
-	//¿ì, ¾Æ·¡, ¿ì»ó ¿ìÇÏ Å½»ö
+	//ìš°, ì•„ëž˜, ìš°ìƒ ìš°í•˜ íƒìƒ‰
 	for (int i = 1; i < 4; i++)
 	{
 		for (int j = 1; j < 4; j++)
 		{
-			//À¯ÀúÀÇ Ç¥½Ä°ú °°Àº °æ¿ì, ¿ìÃøºÎÅÍ Å½»ö
+			//ìœ ì €ì˜ í‘œì‹ê³¼ ê°™ì€ ê²½ìš°, ìš°ì¸¡ë¶€í„° íƒìƒ‰
 			if (check_right(i, j, user, 0))
 			{
 				res = user;
