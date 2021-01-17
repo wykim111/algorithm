@@ -1,9 +1,9 @@
 /*
-	1. s[i][j]¿Í s[j][i]´Â ´Ù¸¦¼ö ÀÖÀ½
-	2. ÆÀÀÇ ´É·ÂÄ¡´Â ÆÀ¿¡ ¼ÓÇÑ ¸ðµç ½ÖÀÇ ´É·ÂÄ¡ ÇÕ
-	3. i¹ø »ç¶÷°ú j¹ø »ç¶÷ÀÌ °°Àº ÆÀ¿¡ ¼ÓÇßÀ» ¶§ ÆÀ¿¡ ´õÇØÁö´Â ´É·ÂÄ¡´Â 
-	   s[i][j]¿Í s[j][i]
-	4.Á¶ÇÕÀÌ¿ë±îÁö´Â ³»°¡ »ý°¢ÇßÁö¸¸ ÀÌÈÄ °è»êÇÏ´Â ¹æ¹ýÀº ³ª¸¸ÀÇ ¹æ¹ýÀ¸·Î ´Ù½Ã ÇÑ¹ø »ý°¢ÇØº¸ÀÚ!!!!!!!!!!
+	1. s[i][j]ì™€ s[j][i]ëŠ” ë‹¤ë¥¼ìˆ˜ ìžˆìŒ
+	2. íŒ€ì˜ ëŠ¥ë ¥ì¹˜ëŠ” íŒ€ì— ì†í•œ ëª¨ë“  ìŒì˜ ëŠ¥ë ¥ì¹˜ í•©
+	3. ië²ˆ ì‚¬ëžŒê³¼ jë²ˆ ì‚¬ëžŒì´ ê°™ì€ íŒ€ì— ì†í–ˆì„ ë•Œ íŒ€ì— ë”í•´ì§€ëŠ” ëŠ¥ë ¥ì¹˜ëŠ” 
+	   s[i][j]ì™€ s[j][i]
+	4.ì¡°í•©ì´ìš©ê¹Œì§€ëŠ” ë‚´ê°€ ìƒê°í–ˆì§€ë§Œ ì´í›„ ê³„ì‚°í•˜ëŠ” ë°©ë²•ì€ ë‚˜ë§Œì˜ ë°©ë²•ìœ¼ë¡œ ë‹¤ì‹œ í•œë²ˆ ìƒê°í•´ë³´ìž!!!!!!!!!!
 */
 #include<stdio.h>
 #include<math.h>
@@ -26,14 +26,14 @@ int min(int n1, int n2)
 void comb(int idx,int curIdx)
 {
 	
-	//ÆÀÀÌ Á¤ÇØÁø °æ¿ì
+	//íŒ€ì´ ì •í•´ì§„ ê²½ìš°
 	if (idx == N/2)
 	{
 		int start = 0;
 		int link = 0;
 		int temp;
 		/*
-		//Á¶ÇÕ
+		//ì¡°í•©
 		for (int i = 0; i < idx; i++)
 		{
 			printf("%d ", ret[i]);
@@ -82,8 +82,8 @@ int main()
 		}
 	}
 	
-	//½ºÅ¸Æ®ÆÀ°ú ¸µÅ©ÆÀÀ¸·Î ³ª´®
-	//¼ø¿­ÀÇ ¿ø¸®
+	//ìŠ¤íƒ€íŠ¸íŒ€ê³¼ ë§í¬íŒ€ìœ¼ë¡œ ë‚˜ëˆ”
+	//ìˆœì—´ì˜ ì›ë¦¬
 	comb(0,1);
 	//printf("cnt = %d\n", cnt);
 
