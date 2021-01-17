@@ -11,8 +11,8 @@ int num;
 
 int dfs(int vertax, int level)
 {
-	//root¸¦ ¸¸³ª¸é ¹İÈ¯
-	//ÇØ´ç³ëµåÀÇ ºÎ¸ğ³ëµå Å½»ö
+	//rootë¥¼ ë§Œë‚˜ë©´ ë°˜í™˜
+	//í•´ë‹¹ë…¸ë“œì˜ ë¶€ëª¨ë…¸ë“œ íƒìƒ‰
 	if (parent[vertax] == -1 || parent[vertax] == 0)
 	{
 		return level;
