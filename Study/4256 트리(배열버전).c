@@ -27,7 +27,7 @@ void makeNode(int preLeft, int preRight, int inLeft, int inRight)
 		leftCnt++;
 	}
 
-	//ÁÂÃø ÀÚ½Ä ³ëµå¿Í ¿ìÃø ÀÚ½Ä³ëµå ÇÒ´ç
+	//ì¢Œì¸¡ ìì‹ ë…¸ë“œì™€ ìš°ì¸¡ ìì‹ë…¸ë“œ í• ë‹¹
 	makeNode(preLeft + 1, preLeft + leftCnt, inLeft, inLeft + leftCnt - 1);
 	makeNode(preLeft + leftCnt + 1, preRight, inLeft + leftCnt + 1, inRight);
 	printf("%d ", preOrder[preLeft]);
