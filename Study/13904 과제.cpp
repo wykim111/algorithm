@@ -10,8 +10,8 @@ int res = 0;
 
 typedef struct _work
 {
-	int d;//°úÁ¦ ¸¶°¨ÀÏ ±îÁö ³²Àº ÀÏ¼ö, °úÁ¦ÀÇ Á¡¼ö ¼ø
-	int w;//°úÁ¦ÀÇ Á¡¼ö ¼ø
+	int d;//ê³¼ì œ ë§ˆê°ì¼ ê¹Œì§€ ë‚¨ì€ ì¼ìˆ˜, ê³¼ì œì˜ ì ìˆ˜ ìˆœ
+	int w;//ê³¼ì œì˜ ì ìˆ˜ ìˆœ
 }Work;
 
 Work homework[1000];
@@ -19,7 +19,7 @@ bool visit[1000] = { 0, };
 
 bool cmp(Work& p1, Work& p2)
 {
-	//³»¸²Â÷¼ø Á¤·Ä
+	//ë‚´ë¦¼ì°¨ìˆœ ì •ë ¬
 	return p1.w > p2.w;
 }
 
@@ -29,15 +29,15 @@ int main()
 
 	for (int i = 0; i < N; i++)
 	{
-		//int d, w;//°úÁ¦ ¸¶°¨ÀÏ ±îÁö ³²Àº ÀÏ¼ö, °úÁ¦ÀÇ Á¡¼ö ¼ø
+		//int d, w;//ê³¼ì œ ë§ˆê°ì¼ ê¹Œì§€ ë‚¨ì€ ì¼ìˆ˜, ê³¼ì œì˜ ì ìˆ˜ ìˆœ
 		
 		scanf("%d %d", &(homework[i].d), &(homework[i].w));
 		maxday = max(homework[i].d, maxday);
 	}
-	//Á¡¼ö¼øÀ¸·Î ³»¸²Â÷¼ø
+	//ì ìˆ˜ìˆœìœ¼ë¡œ ë‚´ë¦¼ì°¨ìˆœ
 	sort(homework + 0, homework + N, cmp);
 	/*
-	printf("Á¤·Ä¼ø¼­\n");
+	printf("ì •ë ¬ìˆœì„œ\n");
 
 	for (int i = 0; i < N; i++)
 	{
