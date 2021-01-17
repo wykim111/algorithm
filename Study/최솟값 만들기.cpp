@@ -5,7 +5,7 @@ using namespace std;
 
 bool cmp(const int& p1, const int& p2)
 {
-	//³»¸²Â÷¼ø
+	//ë‚´ë¦¼ì°¨ìˆœ
 	return (p1 > p2);
 }
 
@@ -13,9 +13,9 @@ int solution(vector<int> A, vector<int> B)
 {
 	int answer = 0;
 
-	//¿À¸§Â÷¼ø
+	//ì˜¤ë¦„ì°¨ìˆœ
 	sort(A.begin(), A.end());
-	//³»¸²Â÷¼ø
+	//ë‚´ë¦¼ì°¨ìˆœ
 	sort(B.begin(), B.end(), cmp);
 
 
