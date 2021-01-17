@@ -37,7 +37,7 @@ void MergeSort(int arr[], int s, int m, int e)
 			idx++;
 		}
 	}
-	//ÀúÀå
+	//Ã€ÃºÃ€Ã¥
 	for (int i = s; i <= e; i++)
 	{
 		arr[i] = sortArr[i];
