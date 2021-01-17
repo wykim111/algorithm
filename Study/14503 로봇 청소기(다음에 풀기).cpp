@@ -1,25 +1,25 @@
 /*
-1.ÇöÀç À§Ä¡¸¦ Ã»¼ÒÇÑ´Ù.
-2.ÇöÀç À§Ä¡¿¡¼­ ÇöÀç ¹æÇâÀ» ±âÁØÀ¸·Î ¿ÞÂÊ¹æÇâºÎÅÍ Â÷·Ê´ë·Î Å½»öÀ» ÁøÇàÇÑ´Ù. 
-a.¿ÞÂÊ ¹æÇâ¿¡ ¾ÆÁ÷ Ã»¼ÒÇÏÁö ¾ÊÀº °ø°£ÀÌ Á¸ÀçÇÑ´Ù¸é, ±× ¹æÇâÀ¸·Î È¸ÀüÇÑ ´ÙÀ½ ÇÑ Ä­À» ÀüÁøÇÏ°í 1¹øºÎÅÍ ÁøÇàÇÑ´Ù.
-b.¿ÞÂÊ ¹æÇâ¿¡ Ã»¼ÒÇÒ °ø°£ÀÌ ¾ø´Ù¸é, ±× ¹æÇâÀ¸·Î È¸ÀüÇÏ°í 2¹øÀ¸·Î µ¹¾Æ°£´Ù.
-c.³× ¹æÇâ ¸ðµÎ Ã»¼Ò°¡ ÀÌ¹Ì µÇ¾îÀÖ°Å³ª º®ÀÎ °æ¿ì¿¡´Â, ¹Ù¶óº¸´Â ¹æÇâÀ» À¯ÁöÇÑ Ã¤·Î ÇÑ Ä­ ÈÄÁøÀ» ÇÏ°í 2¹øÀ¸·Î µ¹¾Æ°£´Ù.
-d.³× ¹æÇâ ¸ðµÎ Ã»¼Ò°¡ ÀÌ¹Ì µÇ¾îÀÖ°Å³ª º®ÀÌ¸é¼­, µÚÂÊ ¹æÇâÀÌ º®ÀÌ¶ó ÈÄÁøµµ ÇÒ ¼ö ¾ø´Â °æ¿ì¿¡´Â ÀÛµ¿À» ¸ØÃá´Ù.
+1.í˜„ìž¬ ìœ„ì¹˜ë¥¼ ì²­ì†Œí•œë‹¤.
+2.í˜„ìž¬ ìœ„ì¹˜ì—ì„œ í˜„ìž¬ ë°©í–¥ì„ ê¸°ì¤€ìœ¼ë¡œ ì™¼ìª½ë°©í–¥ë¶€í„° ì°¨ë¡€ëŒ€ë¡œ íƒìƒ‰ì„ ì§„í–‰í•œë‹¤. 
+a.ì™¼ìª½ ë°©í–¥ì— ì•„ì§ ì²­ì†Œí•˜ì§€ ì•Šì€ ê³µê°„ì´ ì¡´ìž¬í•œë‹¤ë©´, ê·¸ ë°©í–¥ìœ¼ë¡œ íšŒì „í•œ ë‹¤ìŒ í•œ ì¹¸ì„ ì „ì§„í•˜ê³  1ë²ˆë¶€í„° ì§„í–‰í•œë‹¤.
+b.ì™¼ìª½ ë°©í–¥ì— ì²­ì†Œí•  ê³µê°„ì´ ì—†ë‹¤ë©´, ê·¸ ë°©í–¥ìœ¼ë¡œ íšŒì „í•˜ê³  2ë²ˆìœ¼ë¡œ ëŒì•„ê°„ë‹¤.
+c.ë„¤ ë°©í–¥ ëª¨ë‘ ì²­ì†Œê°€ ì´ë¯¸ ë˜ì–´ìžˆê±°ë‚˜ ë²½ì¸ ê²½ìš°ì—ëŠ”, ë°”ë¼ë³´ëŠ” ë°©í–¥ì„ ìœ ì§€í•œ ì±„ë¡œ í•œ ì¹¸ í›„ì§„ì„ í•˜ê³  2ë²ˆìœ¼ë¡œ ëŒì•„ê°„ë‹¤.
+d.ë„¤ ë°©í–¥ ëª¨ë‘ ì²­ì†Œê°€ ì´ë¯¸ ë˜ì–´ìžˆê±°ë‚˜ ë²½ì´ë©´ì„œ, ë’¤ìª½ ë°©í–¥ì´ ë²½ì´ë¼ í›„ì§„ë„ í•  ìˆ˜ ì—†ëŠ” ê²½ìš°ì—ëŠ” ìž‘ë™ì„ ë©ˆì¶˜ë‹¤.
 */
 
 #include<stdio.h>
 #include<iostream>
-#define NORTH 0//ºÏ
-#define EAST 1 //µ¿
-#define SOUTH 2 //³²
-#define WEST 3 //¼­
+#define NORTH 0//ë¶
+#define EAST 1 //ë™
+#define SOUTH 2 //ë‚¨
+#define WEST 3 //ì„œ
 
 using namespace std;
-//ºÏµ¿³²¼­ ¼ø
+//ë¶ë™ë‚¨ì„œ ìˆœ
 int dy[] = { -1,0,1,0 };
 int dx[] = { 0,1,0,-1 };
 
-// ¹Ù¶óº¸´Â ¹æÇâ¿¡ µû¸¥ ÈÄÁø (³², ¼­, ºÏ, µ¿)
+// ë°”ë¼ë³´ëŠ” ë°©í–¥ì— ë”°ë¥¸ í›„ì§„ (ë‚¨, ì„œ, ë¶, ë™)
 int back_dy[4] = { 1,0,-1,0 };
 int back_dx[4] = { 0,-1,0,1 };
 
@@ -45,10 +45,10 @@ void dfs(int curY, int curX, int dir)
 		int nextY = curY + dy[nextDir];
 		int nextX = curX + dx[nextDir];
 
-		// ¸ÊÀ» ¹þ¾î³­ °æ¿ì
+		// ë§µì„ ë²—ì–´ë‚œ ê²½ìš°
 		if ( nextY >= N || nextY <0 || nextX >=M || nextX<0)
 			continue;
-		//Ã»¼Ò¸¦ Çß°Å³ª º®ÀÎ °æ¿ì ¹æÇâ ¹Ù²Ù±â 
+		//ì²­ì†Œë¥¼ í–ˆê±°ë‚˜ ë²½ì¸ ê²½ìš° ë°©í–¥ ë°”ê¾¸ê¸° 
 		if (map[nextY][nextX] == 1 ||map[nextY][nextX] == 2)
 		{
 			dir = nextDir;
@@ -62,8 +62,8 @@ void dfs(int curY, int curX, int dir)
 		
 	}
 
-	//4¹æÇâ ¸ðµÎ °Ë»çÇØ¼­ Ã»¼Ò¸¦ ´Ù ÇÑ °æ¿ì
-	//ÇöÀç À§Ä¡¿¡¼­ ÈÄÁøÇÒ ¼ö ÀÖ´Â ¹æÇâÀ» ÀúÀå
+	//4ë°©í–¥ ëª¨ë‘ ê²€ì‚¬í•´ì„œ ì²­ì†Œë¥¼ ë‹¤ í•œ ê²½ìš°
+	//í˜„ìž¬ ìœ„ì¹˜ì—ì„œ í›„ì§„í•  ìˆ˜ ìžˆëŠ” ë°©í–¥ì„ ì €ìž¥
 	int nextY = curY + back_dy[dir], nextX = curX + back_dx[dir];
 
 	dfs(nextY, nextX, dir);
