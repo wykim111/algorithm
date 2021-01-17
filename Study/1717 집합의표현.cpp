@@ -10,7 +10,7 @@ int find(int x)
 	else
 	{
 		int y;
-		//xÀÇ ·çÆ®¸¦ Ã£¾Æ³¿
+		//xì˜ ë£¨íŠ¸ë¥¼ ì°¾ì•„ëƒ„
 		y = find(parent[x]);
 		parent[x] = y;
 
@@ -22,7 +22,7 @@ void Union(int x, int y)
 	 x = find(x);
 	 y = find(y);
 
-	//yÀÇ ·çÆ®´Â x·Î ¼³Á¤
+	//yì˜ ë£¨íŠ¸ëŠ” xë¡œ ì„¤ì •
 	if (x != y)
 	{
 		parent[y] = x;
@@ -43,12 +43,12 @@ int main()
 		int a, b, flag;
 
 		scanf("%d %d %d", &flag, &a, &b);
-		//flag == 0ÀÎ °æ¿ì ÇÕÄ§
+		//flag == 0ì¸ ê²½ìš° í•©ì¹¨
 		if (flag == 0)
 		{
 			Union(a, b);
 		}
-		else//flag == 1ÀÎ °æ¿ì Æ÷ÇÔ È®ÀÎ
+		else//flag == 1ì¸ ê²½ìš° í¬í•¨ í™•ì¸
 		{
 			int parent_A = find(a);
 			int parent_B = find(b);
