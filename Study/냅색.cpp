@@ -1,8 +1,8 @@
 #include<stdio.h>
 
 int N, K;
-int w[100];//¹«°Ô
-int v[100];//°¡Ä¡
+int w[100];//ë¬´ê²Œ
+int v[100];//ê°€ì¹˜
 
 int max(int n1, int n2)
 {
@@ -13,16 +13,16 @@ int max(int n1, int n2)
 }
 int knapsack(int idx, int weight)
 {
-	//¹«°Ô°¡ Kº¸´Ù Å« °æ¿ì
+	//ë¬´ê²Œê°€ Kë³´ë‹¤ í° ê²½ìš°
 	if (weight > K)
 	{
 		return (-1) * v[idx - 1];
 	}
-	//idx°¡ NÀÌ µÇ´Â °æ¿ì(Å½»öÀÇ ¹üÀ§°¡ ¹ş¾î³²)
+	//idxê°€ Nì´ ë˜ëŠ” ê²½ìš°(íƒìƒ‰ì˜ ë²”ìœ„ê°€ ë²—ì–´ë‚¨)
 	if (idx == N)
 		return 0;
 	
-	//ÇØ´ç ¹°°ÇÀ» ¾È °¡Áö´Â °æ¿ì¿Í °¡Áö´Â °æ¿ì
+	//í•´ë‹¹ ë¬¼ê±´ì„ ì•ˆ ê°€ì§€ëŠ” ê²½ìš°ì™€ ê°€ì§€ëŠ” ê²½ìš°
 	return max(knapsack(idx + 1, weight), knapsack(idx + 1, weight + w[idx]) + v[idx]);
 }
 int main()
