@@ -7,7 +7,7 @@ int visit[9];
 
 int cmp(const void* p1, const void* p2)
 {
-	return *(int*)p1 - *(int*)p2;//¿À¸§Â÷¼ø
+	return *(int*)p1 - *(int*)p2;//ì˜¤ë¦„ì°¨ìˆœ
 }
 
 int go(int dep, int cur,int sum)
@@ -32,10 +32,10 @@ int go(int dep, int cur,int sum)
 	for (int i = cur; i < 9; i++)
 	{
 		visit[i] = 1;
-		if (go(dep + 1, i + 1, sum + dwarf[i]))//ÇöÀç ³­ÀåÀÌ¸¦ ¼±ÅÃÇÏ´Â °æ¿ì
+		if (go(dep + 1, i + 1, sum + dwarf[i]))//í˜„ìž¬ ë‚œìž¥ì´ë¥¼ ì„ íƒí•˜ëŠ” ê²½ìš°
 			return 1;
 		visit[i] = 0;
-		if (go(dep, i + 1, sum))////ÇöÀç ³­ÀåÀÌ¸¦ ¼±ÅÃ ¾È ÇÏ´Â °æ¿ì
+		if (go(dep, i + 1, sum))////í˜„ìž¬ ë‚œìž¥ì´ë¥¼ ì„ íƒ ì•ˆ í•˜ëŠ” ê²½ìš°
 			return 1;
 	
 	}
