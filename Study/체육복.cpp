@@ -23,21 +23,21 @@ int solution(int n, vector<int> lost, vector<int> reserve)
 		person[reserve[i]]++;
 	}
 
-	//ÀüÃ¼ Å½»ö ÁøÇà
+	//ì „ì²´ íƒìƒ‰ ì§„í–‰
 	for (int i = 0; i < lost.size(); i++)
 	{
-		//¾Õ»ç¶÷ÀÌ³ª µŞ»ç¶÷ÀÇ ¿©ºĞÀ» °¡Á®¿À´Â °æ¿ì
-		//µµ³­ ´çÇßÀ¸³ª ¿©ºĞÀÌ ÀÖ´Â °æ¿ì
+		//ì•ì‚¬ëŒì´ë‚˜ ë’·ì‚¬ëŒì˜ ì—¬ë¶„ì„ ê°€ì ¸ì˜¤ëŠ” ê²½ìš°
+		//ë„ë‚œ ë‹¹í–ˆìœ¼ë‚˜ ì—¬ë¶„ì´ ìˆëŠ” ê²½ìš°
 		if (person[lost[i]] != -1)
 			continue;
-		//¾Õ»ç¶÷ÀÌ ÀÖ´Â °æ¿ì
+		//ì•ì‚¬ëŒì´ ìˆëŠ” ê²½ìš°
 		if (person[lost[i] - 1] == 1)
 		{
 			person[lost[i]] = 0;
 			person[lost[i]-1] = 0;
 			
 		}
-		else if(person[lost[i]+1] == 1)//µŞ»ç¶÷ÀÌ ¿©¹úÀÌ ÀÖÀ½
+		else if(person[lost[i]+1] == 1)//ë’·ì‚¬ëŒì´ ì—¬ë²Œì´ ìˆìŒ
 		{
 			person[lost[i]] = 0;
 			person[lost[i] + 1] = 0;
