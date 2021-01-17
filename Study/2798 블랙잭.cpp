@@ -1,5 +1,5 @@
 /*
-	гуюл Mю╩ ЁяаЖ ╬й╢б д╚╣Е
+	М∙╘Л²╢ MЛ²└ К└≤Л╖─ Л∙┼К┼■ Л╧╢К⌠°
 */
 #include<stdio.h>
 
@@ -16,10 +16,10 @@ int min(int n1, int n2)
 
 void go(int idx, int curIdx, int sum)
 {
-	//3юЕ ╪╠ец
+	//3Л·╔ Л└═М┐²
 	if (idx == 3)
 	{
-		//M юлгоюн ╪Ж цё╠Б
+		//M Л²╢М∙≤Л²╦ Л┬≤ Л╟╬Й╦╟
 		if (sum <= M)
 		{
 	//		printf("sum = %d\n", sum);
@@ -27,11 +27,11 @@ void go(int idx, int curIdx, int sum)
 		}
 		return;
 	}
-	//╧Эю╖ цй╟З╫ц
+	//К╡■Л°└ Л╢┬ЙЁ╪Л▀°
 	if (curIdx >= N)
 		return;
 
-	//гь╢Г д╚╣Е╦╕ ╪╠ецго╢б ╟Ф©Л,гь╢Гд╚╣Е╦╕ ╪╠ец ╬х го╢б ╟Ф©Л
+	//М∙╢К▀╧ Л╧╢К⌠°К╔╪ Л└═М┐²М∙≤К┼■ Й╡╫Л ╟,М∙╢К▀╧Л╧╢К⌠°К╔╪ Л└═М┐² Л∙┬ М∙≤К┼■ Й╡╫Л ╟
 	go(idx + 1, curIdx + 1, sum + card[curIdx]);
 	go(idx, curIdx + 1, sum);
 
