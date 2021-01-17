@@ -8,7 +8,7 @@ int N;
 int T[16];
 int P[16];
 int ret;
-//³¯Â¥,±İ¾×¼ø
+//ë‚ ì§œ,ê¸ˆì•¡ìˆœ
 void go(int T_Sum, int P_Sum)
 {
 	
@@ -17,10 +17,10 @@ void go(int T_Sum, int P_Sum)
 		ret = max(ret, P_Sum);
 		return;
 	}
-	//ÇöÀç »ó´ãÀ» ¼±ÅÃ ¾ÈÇÑ °æ¿ì
+	//í˜„ì¬ ìƒë‹´ì„ ì„ íƒ ì•ˆí•œ ê²½ìš°
 	go(T_Sum + 1, P_Sum);
-	//ÇöÀç »ó´ãÀ»  ¼±ÅÃ ÇÑ °æ¿ì
-	//±â°£ÀÌ ÃÊ°úµÇ¸é skip
+	//í˜„ì¬ ìƒë‹´ì„  ì„ íƒ í•œ ê²½ìš°
+	//ê¸°ê°„ì´ ì´ˆê³¼ë˜ë©´ skip
 	if (T_Sum + T[T_Sum] <= N+1)
 	{
 		go(T_Sum + T[T_Sum], P_Sum + P[T_Sum]);
