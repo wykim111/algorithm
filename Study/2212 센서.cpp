@@ -1,5 +1,5 @@
 /*
-	±×¸®µð ¾Ë°í¸®Áò
+	ê·¸ë¦¬ë”” ì•Œê³ ë¦¬ì¦˜
 
 */
 #include<iostream>
@@ -23,15 +23,15 @@ int main()
 	{
 		scanf("%d", &arr[i]);
 	}
-	//¿À¸§Â÷¼ø Á¤·Ä
+	//ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬
 	sort(arr + 0, arr + N);
 
-	//°¢ ±¸°£¸¶´Ù Â÷ÀÌ¸¦ ÀúÀå
+	//ê° êµ¬ê°„ë§ˆë‹¤ ì°¨ì´ë¥¼ ì €ìž¥
 	for (int i = 0; i < N - 1; i++)
 	{
 		dist[i] = arr[i + 1] - arr[i];
 	}
-	//°¢ ±¸°£ÀÇ Â÷ÀÌ°ªÀ» ¿À¸§Â÷¼øÀ¸·Î ÀúÀå
+	//ê° êµ¬ê°„ì˜ ì°¨ì´ê°’ì„ ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì €ìž¥
 	sort(dist + 0, dist + (N - 1));
 
 	for (int i = 0; i < N - K; i++)
