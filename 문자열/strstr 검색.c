@@ -36,7 +36,7 @@ char* wyStrStr(char* s1, char* s2)
 
 			if (j == size2)
 			{
-				printf("i = %d¹ø¤ŠÁøÀÔ\n",i);
+				printf("i = %dÂ¹Ã¸Â¤Å ÃÃ¸Ã€Ã”\n",i);
 				p_Str = (s1 + i);
 				return p_Str;
 			}
