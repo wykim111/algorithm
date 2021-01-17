@@ -3,16 +3,16 @@
 #include <algorithm>
 using namespace std;
 
-//´ä¾ÈÁö°¡ ¸Å°³º¯¼ö
+//ë‹µì•ˆì§€ê°€ ë§¤ê°œë³€ìˆ˜
 vector<int> solution(vector<int> answers) {
 
 	vector<int> answer;
-	//ÇĞ»ö 1,2,3
+	//í•™ìƒ‰ 1,2,3
 	vector<int> stu1{ 1,2,3,4,5 };
 	vector<int> stu2{ 2, 1, 2, 3, 2, 4, 2, 5 }; 
 	vector<int> stu3{ 3, 3, 1, 1, 2, 2, 4, 4, 5, 5 };
 	int Max_Point = 0;
-	//ÇĞ»ıµé ¹®Á¦ ¸ÂÈ÷´Â °¹¼ö
+	//í•™ìƒë“¤ ë¬¸ì œ ë§íˆëŠ” ê°¯ìˆ˜
 	int cnt1 = 0, cnt2 = 0, cnt3 = 0;
 
 
@@ -26,7 +26,7 @@ vector<int> solution(vector<int> answers) {
 			cnt3++;
 	}
 
-	//Á¤·Ä
+	//ì •ë ¬
 	Max_Point = max(cnt1, max(cnt2, cnt3));
 
 	if (Max_Point == cnt1)
