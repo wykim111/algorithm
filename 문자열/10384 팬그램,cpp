@@ -1,0 +1,82 @@
+#include<stdio.h>
+#include<string.h>
+
+
+int alphabetCnt[26];
+
+int main()
+{
+	int N;
+	int cnt = 0;
+
+	scanf("%d", &N);
+	getchar();
+
+	while (N--)
+	{
+		char str[1000];
+		int strLen = 0;
+
+		memset(str, 0, sizeof(str));
+		memset(alphabetCnt, 0, sizeof(alphabetCnt));
+
+		fgets(str, sizeof(str), stdin);
+
+		strLen = strlen(str);
+
+		str[strLen - 1] = '\0';
+
+		strLen = strlen(str);
+
+
+		for (int i = 0; i < strLen; i++)
+		{
+			if (str[i] >= 'A' && str[i] <= 'Z')
+			{
+				alphabetCnt[str[i] - 'A']++;
+			}
+			else if (str[i] >= 'a' && str[i] <= 'z')
+			{
+				alphabetCnt[str[i] - 'a']++;
+			}
+			else
+			{
+
+			}
+		}
+		
+		int minFlag = 10;
+		//팬그램 판단
+		//알파벳을 탐색하면서 최솟값을 기준으로 판단
+		for (int i = 0; i < 26; i++)
+		{
+			if (minFlag > alphabetCnt[i])
+			{
+				minFlag = alphabetCnt[i];
+			}
+		}
+
+		if (minFlag == 0)
+		{
+			printf("Case %d: Not a pangram\n", cnt+1);
+		}
+		else if (minFlag == 1)
+		{
+			printf("Case %d: Pangram!\n", cnt + 1);
+		}
+		else if (minFlag == 2)
+		{
+			printf("Case %d: Double pangram!!\n", cnt + 1);
+		}
+		else
+		{
+			printf("Case %d: Triple pangram!!!\n", cnt + 1);
+		}
+
+		cnt++;
+
+	}
+
+
+	return 0;
+}
