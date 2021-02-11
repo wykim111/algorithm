@@ -1,3 +1,12 @@
+/*
+    메뉴에 대해 조합을 이용하여 완전 탐색을 한 뒤, 중복되는 메뉴에 대해 카운트
+    - 각 메뉴를 오름차순으로 정리
+    - 현재 메뉴를 선택하는 경우와 선택하지 않은 경우를 탑색하고, map을 이용하여 인덱스로 길이를 받고, 
+      길이에 대한 음식의 구성을 키로 받은 뒤, value로는 카운트를 증가시킨다.
+
+    
+*/
+
 #include <algorithm>
 #include <string>
 #include <vector>
@@ -7,7 +16,7 @@
 
 using namespace std;
 
-map<string,int> mp[11];
+map<string,int> mp[11];//  index는 조합을 통해 구성된 orders의 메뉴(key)의 길이 , value는 키에 대한 카운트
 int maxTable[11];
 
 void comb(int dep,string pick,string str)
