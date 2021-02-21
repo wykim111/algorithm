@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
-//최
+//최대공약수 
 int GCD(int n1,int n2)
 {
     if(n2 == 0)
