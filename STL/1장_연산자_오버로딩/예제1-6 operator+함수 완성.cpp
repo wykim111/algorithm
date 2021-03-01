@@ -3,7 +3,7 @@ using namespace std;
 
 class Point
 {
-	//class ³» class º¯¼öµéÀÇ Á¢±Ù ÁöÁ¤Àº ±âº»ÀûÀ¸·Î private
+	//class ë‚´ class ë³€ìˆ˜ë“¤ì˜ ì ‘ê·¼ ì§€ì •ì€ ê¸°ë³¸ì ìœ¼ë¡œ private
 	int x;
 	int  y;
 
