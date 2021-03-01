@@ -3,7 +3,7 @@ using namespace std;
 
 class Point
 {
-	//class ³» class º¯¼öµéÀÇ Á¢±Ù ÁöÁ¤Àº ±âº»ÀûÀ¸·Î private
+	//class ë‚´ class ë³€ìˆ˜ë“¤ì˜ ì ‘ê·¼ ì§€ì •ì€ ê¸°ë³¸ì ìœ¼ë¡œ private
 	int x;
 	int  y;
 
@@ -18,14 +18,14 @@ public:
 		cout << x << ',' << y << endl;
 	}
 
-	const Point& operator++() // ÀüÀ§ ++
+	const Point& operator++() // ì „ìœ„ ++
 	{
 		++x;
 		++y;
 		return *this;
 	}
 
-	const Point operator++(int) // ÈÄÀ§ ++
+	const Point operator++(int) // í›„ìœ„ ++
 	{
 		Point pt(x, y);
 		++x;
@@ -40,7 +40,7 @@ int main()
 	Point p1(2, 3), p2(2, 3);
 	Point result;
 
-	//ÀüÀ§ Áõ°¡
+	//ì „ìœ„ ì¦ê°€
 	result = ++p1;
 	p1.Print();
 	result.Print();
