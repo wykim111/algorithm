@@ -16,7 +16,8 @@ using namespace std;
 
 queue<pair<int, int>>Que;//first : 위치, second : 이동 횟수
 int subin, brother; //수빈과 수빈의 동생 위치 입력
-int visit[200000];//여기에서 틀렸습니다 발생!!!!!!! -> 
+//->현재위치 *2 해서 100002번째인 경우 타겟 100000번째에 2번 이동하면 되는 경우가 있음 
+int visit[200000];//여기에서 틀렸습니다 발생!!!!!!! 
 int minRet = 123456789;
 
 int main()
