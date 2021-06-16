@@ -1,3 +1,9 @@
+/*
+	go(시작점, 시작점부터 (사이즈/3 - 1))
+	blank(시작점+(사이즈/3), 시작점+(사이즈/3) + size-1
+	go(시작점+(사이즈/3)*2, 시작점+(사이즈/3)*2 +size-1)
+*/
+
 #include<stdio.h>
 #include<string.h>
 #include<math.h>
