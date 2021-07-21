@@ -114,7 +114,7 @@ int main()
 		trace_city.push_back(trace_idx);
 		trace_idx = trace[trace_idx];
 	}
-	trace_city.push_back(start);
+	trace_city.push_back(start); //역순으로 마지막 데이터 부터 들어가고, 시작지점은  거리 업데이트 하는 부분 for(k~)부분을 수행하지 않으므로 넣어준다.
 
 	printf("%d\n", trace_city.size());
 
