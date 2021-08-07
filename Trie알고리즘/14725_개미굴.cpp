@@ -1,6 +1,6 @@
 /*
 	Trie알고리즘을 활용하여 tree 형태로 만들고, dfs 탐색
-	- 같은 문자열인 경우 map을 활용하여 
+	- 같은 문자열인 경우 map을 활용하여 해당되는 키의 depth+1로 업데이트
 */
 #include <iostream>
 #include <map>
