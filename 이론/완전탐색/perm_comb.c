@@ -7,6 +7,9 @@ int arr[3] = { 1,2,3 };
 int set[10];
 int comb[10];
 
+int visit[10];
+int perm[10];
+
 void subset(int dep,int set_size, int curIdx)
 {
 	if (dep == SIZE)
@@ -28,7 +31,30 @@ void subset(int dep,int set_size, int curIdx)
 
 void permutation(int dep)
 {
+	if (dep == 2)
+	{
+		for (int i = 0; i < dep; i++)
+		{
+			printf("%d ", perm[i]);
+		}
+		printf("\n");
 
+		return;
+	}
+
+	
+
+	for (int i = 0; i < SIZE; i++)
+	{
+		if (visit[arr[i]] == 1)
+		{
+			continue;
+		}
+		visit[arr[i]] = 1;
+		perm[dep] = arr[i];
+		permutation(dep + 1);
+		visit[arr[i]] = 0;
+	}
 }
 
 void combination(int dep,int set_size, int curIdx,int pick)
@@ -63,10 +89,13 @@ void combination(int dep,int set_size, int curIdx,int pick)
 int main()
 {
 	printf("부분집합\n");
-//	subset(0, 0, 0);
+	subset(0, 0, 0);
 
 	printf("조합\n");
 	combination(0, 0, 0, 0);
+
+	printf("순열\n");
+	permutation(0);
 
 	return 0;
 }
