@@ -50,6 +50,9 @@ void check_huff_table(char* encode_table[]);
 //Decode func
 void set_decode(NODE* root);
 
+//Delete_Memory
+void delete_mem(NODE* root);
+
 int main()
 {
 	FILE* in, *out;
@@ -123,10 +126,27 @@ int main()
 	set_decode(huffmanCode);
 	printf("decode -> %s\n",decode);
 
+	fclose(out);
+	fclose(in);
 
+	delete_mem(huffmanCode);
 
 	return 0;
 }
+
+void delete_mem(NODE* root)
+{
+	if ((root->left == NULL) && (root->right == NULL))
+	{
+		free(root);
+
+		return;
+	}
+
+	delete_mem(root->left);
+	delete_mem(root->right);
+}
+
 
 void set_decode(NODE* root)
 {
