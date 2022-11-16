@@ -86,7 +86,7 @@ int getHeight(Node* node)
 {
 	int height = 0;
 
-	if (node != NULL)
+	if (node == NULL)
 	{
 
 		return 0;
@@ -175,6 +175,18 @@ Node* avlSearch(Node *node, int key)
 		avlSearch(node->right, key);
 }
 
+void preorder(Node* cur)
+{
+	if (cur == NULL)
+	{
+		return;
+	}
+
+	printf("%d ", cur->data);
+	preorder(cur->left);
+	preorder(cur->right);
+}
+
 int main()
 {
 	AVL_Insert(&root, 8);
@@ -190,5 +202,6 @@ int main()
 	AVL_Insert(&root, 11);
 	AVL_Insert(&root, 12);
 
+	preorder(root);
 	return 0;
 }
