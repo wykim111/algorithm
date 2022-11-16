@@ -40,7 +40,7 @@ Node* rotateLL(Node* parent)
 {
 	Node* child = parent->left;
 	parent->left = child->right;
-	child->left = parent;
+	child->right = parent;
 
 	return child;
 }
