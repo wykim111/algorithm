@@ -1,0 +1,63 @@
+/*
+	< 구현>
+
+	1. n번 반복하여 숫자 입력 받아 sum에 더해 줌.
+	2. sum의 상태 체크
+		2-1. sum < 0 이면, "Left" 출력.
+		2-2. sum > 0 이면, "Right" 출력.
+		2-3. sum == 0 이면, "Stay" 출력.
+
+*/
+
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+using namespace std;
+
+int N;
+vector<int> conveyor_belt_vt;
+int sum = 0;
+
+void input()
+{
+	cin >> N;
+
+	for (int i = 0; i < N; i++)
+	{
+		int item;
+
+		cin >> item;
+
+		conveyor_belt_vt.push_back(item);
+	}
+}
+
+void solution()
+{
+	for (int i = 0; i < N; i++)
+	{
+		sum += conveyor_belt_vt[i];
+	}
+
+	if (sum < 0)
+	{
+		cout << "Left" << '\n';
+	}
+	else if (sum > 0)
+	{
+		cout << "Right" << '\n';
+	}
+	else
+	{
+		cout << "Stay" << '\n';
+	}
+}
+
+int main()
+{
+	input();
+	solution();
+
+	return 0;
+}
