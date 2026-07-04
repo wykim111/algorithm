@@ -138,4 +138,6 @@ int main()
         input();
         solution(t);
     }
+
+    return 0
 }
