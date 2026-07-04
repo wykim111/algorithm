@@ -51,13 +51,17 @@ void go(int dep, int last_num, int sum)
     if(sum == n)
     {
         cout << n << "=";
-        for(int i=0; i<num_vt.size()-1; i++)
+  
+        for(int i = 0; i < num_vt.size(); i++)
         {
-            cout << num_vt[i] << '+';
+            if(i > 0) 
+                cout << '+';
+            cout << num_vt[i];
         }
-        cout << num_vt[num_vt.size()-1] << '\n';
+        cout << '\n';
 
         return;
+    
     }
 
     for(int i=last_num+2; i <= n; i++)
