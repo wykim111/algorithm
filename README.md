@@ -33,41 +33,8 @@ testdome C Language 인증서 <?xml version="1.0" encoding="UTF-8"?>
     </linearGradient>
   </defs>
 
-  <g clip-path="url(#clipCardV2)">
-    <rect x="0" y="0" width="560" height="244" rx="18" fill="#FFFFFF"/>
 
-    <polygon points="0,0 168,0 347,96 0,96" fill="#FFFFFF"/>
-    <g clip-path="url(#clipHeroV2)">
-      <rect x="168" y="0" width="392" height="96" fill="#FFFFFF"/>
- 
-    <image href="data:image/svg+xml;base64,PHN2ZyBpZD0i66CI7J207Ja0XzEiIGRhdGEtbmFtZT0i66CI7J207Ja0IDEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDQwMCA1MTIiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojMjdlMmE0O30uY2xzLTJ7ZmlsbDojZmZmO308L3N0eWxlPjwvZGVmcz48dGl0bGU+MTc8L3RpdGxlPjxwb2x5Z29uIGNsYXNzPSJjbHMtMSIgcG9pbnRzPSIwIDAgMCA0MTkuNzQgMTk5Ljc3IDUxMiA0MDAgNDE5Ljc0IDQwMCAwIDAgMCIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIwIDMzOS4wMiAwIDM3OC45NCAxOTkuNzcgNDcxLjIgNDAwIDM3OC45NCA0MDAgMzM5LjAyIDE5OS43NyA0MzEuMjggMCAzMzkuMDIiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0yNjkuMTIsMjczLjYzdjQ5LjY4SDIxMi42VjI3My42M0g5Mi43MlYyMjIuODdMMTk2LjQsNjguNDNoNzIuMzZWMjI0LjY3SDMwNHY0OVpNMjEzLDEzMC4zNWgtMS4wOEwxNTEuNCwyMjQuNjdIMjEzWiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCkiLz48L3N2Zz4=" x="18" y="112" width="24" height="24" preserveAspectRatio="xMidYMid meet"/>
-    <text x="52" y="130" fill="#0F172A" font-size="23" font-weight="900" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto">
-      ksq111
-    </text>
-    
-      <g>
-        <rect x="18" y="160" width="524" height="28" rx="14" fill="#F8FAFC"/>
-        <text x="32" y="179" fill="#64748B" font-size="12" font-weight="800" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto">
-          Solved
-        </text>
-        <text x="528" y="179" text-anchor="end" fill="#0F172A" font-size="13" font-weight="900" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto">
-          1683
-        </text>
-      </g>
-    
-    
-      <g>
-        <rect x="18" y="196" width="524" height="28" rx="14" fill="#F8FAFC"/>
-        <text x="32" y="215" fill="#64748B" font-size="12" font-weight="800" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto">
-          Rank
-        </text>
-        <text x="528" y="215" text-anchor="end" fill="#0F172A" font-size="13" font-weight="900" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto">
-          #5460
-        </text>
-      </g>
-    
 
-    <rect x="0.5" y="0.5" width="559" height="243" rx="17.5" fill="none" stroke="#D9E2EC"/>
   </g>
 </svg>
 https://app.testdome.com/cert/c62dac9e3fdf4dfab60bbdbde1217e8f
