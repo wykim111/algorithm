@@ -1,10 +1,8 @@
-# algorithm
-
-알고리즘 공부 기록# algorithm
+<img width="560" height="244" alt="solvedac-ksq111-v2" src="https://github.com/user-attachments/assets/c20d2f6e-776f-452a-9bd9-c2d823e1238b" /># algorithm
 
 알고리즘 공부 기록
 
-![solvedac-ksq111-v2](![<?xml version="1.0" encoding="UTF-8"?>
+![solvedac-ksq111-v2]![Uploading solvedac<?xml version="1.0" encoding="UTF-8"?>
 <svg width="560" height="244" viewBox="0 0 560 244" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="ksq111 — Platinum IV, 레이팅 1791, 1701문제 해결">
   <title>ksq111 · solved.ac</title>
   <defs>
@@ -121,15 +119,8 @@
     <rect x="0.5" y="0.5" width="559" height="243" rx="17.5" fill="none" stroke="#21262D"/>
   </g>
 </svg>
-Uploading solvedac-ksq111-v2.svg…]()
-)
+-ksq111-v2.svg…]()
 
-- solved.ac: https://solved.ac/profile/ksq111
-- 백준: https://www.acmicpc.net/user/ksq111
-- TestDome C Language 인증서: https://app.testdome.com/cert/c62dac9e3fdf4dfab60bbdbde1217e8f
-
-![solvedac-ksq111-v2](<img width="560" height="244" alt="solvedac-ksq111-v2" src="https://github.com/user-attachments/assets/01520d86-94db-4129-8a0a-d243756e17e6" />
-)
 
 - solved.ac: https://solved.ac/profile/ksq111
 - 백준: https://www.acmicpc.net/user/ksq111
