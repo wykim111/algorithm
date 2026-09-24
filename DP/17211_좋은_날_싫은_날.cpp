@@ -1,28 +1,30 @@
 /*
 	< dp >
-	1. »óÅÂ Á¤ÀÇ	
-		0 : ±âºÐÀÌ ÁÁÀº ³¯
-		1 : ±âºÐÀÌ ½ÈÀº ³¯
+	1. ìƒíƒœ ì •ì˜	
+		0 : ê¸°ë¶„ì´ ì¢‹ì€ ë‚ 
+		1 : ê¸°ë¶„ì´ ì‹«ì€ ë‚ 
 		state_table[0][0] ~ [1][1]
 	
-	2. dp °è»ê
-		2-1. 1ÀÏÄ¡ °è»ê
-			ÁÁÀº ³¯ÀÏ È®·ü = (¿À´Ã ±âºÐ) * (½ÈÀ½ -> ÁÁÀ½ : state_table[1][0])
-			½ÈÀº ³¯ÀÏ È®·ü = (¿À´Ã ±âºÐ) * (½ÈÀ½ -> ½ÈÀ½ : state_table[1][1])
+	2. dp ê³„ì‚°
+		2-1. 1ì¼ì¹˜ ê³„ì‚°
+			ì¢‹ì€ ë‚ ì¼ í™•ë¥  = (ì˜¤ëŠ˜ ê¸°ë¶„) * (ì‹«ìŒ -> ì¢‹ìŒ : state_table[1][0])
+			ì‹«ì€ ë‚ ì¼ í™•ë¥  = (ì˜¤ëŠ˜ ê¸°ë¶„) * (ì‹«ìŒ -> ì‹«ìŒ : state_table[1][1])
 		
-		2-2. 2ÀÏºÎÅÍ NÀÏ±îÁö °è»ê
-			2-2-1. iÀÏÂ÷°¡ ÁÁÀº ³¯ÀÌ µÇ´Â °æ¿ì
-				(i-1)ÀÏÂ÷°¡ ÁÁÀ½ && iÀÏÂ÷µµ ÁÁÀ½
-				(i-1)ÀÏÂ÷°¡ ½ÈÀ½ && iÀÏÂ÷ ÁÁÀ½
-			2-2-2. iÀÏÂ÷°¡ ½ÈÀº ³¯ÀÌ µÇ´Â °æ¿ì
-				(i-1)ÀÏÂ÷ ÁÁÀ½ && iÀÏÂ÷µµ ½ÈÀ½
-				(i-1)ÀÏÂ÷°¡ ½ÈÀ½ && iÀÏÂ÷ ½ÈÀ½
+		2-2. 2ì¼ë¶€í„° Nì¼ê¹Œì§€ ê³„ì‚°
+			2-2-1. iì¼ì°¨ê°€ ì¢‹ì€ ë‚ ì´ ë˜ëŠ” ê²½ìš°
+				(i-1)ì¼ì°¨ê°€ ì¢‹ìŒ && iì¼ì°¨ë„ ì¢‹ìŒ
+				(i-1)ì¼ì°¨ê°€ ì‹«ìŒ && iì¼ì°¨ ì¢‹ìŒ
+			2-2-2. iì¼ì°¨ê°€ ì‹«ì€ ë‚ ì´ ë˜ëŠ” ê²½ìš°
+				(i-1)ì¼ì°¨ ì¢‹ìŒ && iì¼ì°¨ë„ ì‹«ìŒ
+				(i-1)ì¼ì°¨ê°€ ì‹«ìŒ && iì¼ì°¨ ì‹«ìŒ
 
 
 */
 
 #include <iostream>
 #include <algorithm>
+
+#include <cmath>
 
 #define HAPPY	0
 #define SAD		1
@@ -31,7 +33,7 @@ using namespace std;
 
 int N, today_mood;
 double state_table[2][2];
-double dp[1001][2]; // dp[i][0] : iÀÏÂ÷°¡ ÁÁÀº ³¯ÀÏ È®·ü, dp[i][1] : iÀÏÂ÷°¡ ½ÈÀº ³¯ÀÏ È®·ü
+double dp[1001][2]; // dp[i][0] : iì¼ì°¨ê°€ ì¢‹ì€ ë‚ ì¼ í™•ë¥ , dp[i][1] : iì¼ì°¨ê°€ ì‹«ì€ ë‚ ì¼ í™•ë¥ 
 
 void input()
 {
@@ -46,7 +48,7 @@ void input()
 
 void solution()
 {
-	//0ÀÏÂ÷ °è»ê
+	//0ì¼ì°¨ ê³„ì‚°
 	if (today_mood == HAPPY)
 	{
 		dp[0][HAPPY] = 1.0;
@@ -58,19 +60,19 @@ void solution()
 		dp[0][SAD] = 1.0; 
 	}
 
-	// 1ÀÏÂ÷ °è»ê
+	// 1ì¼ì°¨ ê³„ì‚°
 	dp[1][HAPPY] = (dp[0][HAPPY] * state_table[HAPPY][HAPPY]) + (dp[0][SAD] * state_table[SAD][HAPPY]);
 	dp[1][SAD] = (dp[0][HAPPY] * state_table[HAPPY][SAD]) + (dp[0][SAD] * state_table[SAD][SAD]);
 
-	// 2ÀÏÂ÷ ~ NÀÏÂ÷ °è»ê
+	// 2ì¼ì°¨ ~ Nì¼ì°¨ ê³„ì‚°
 	for (int i = 2; i <= N; i++)
 	{
-		dp[i][HAPPY] = (dp[i - 1][HAPPY] * state_table[HAPPY][HAPPY]) + (dp[i - 1][SAD] * state_table[SAD][HAPPY]); // iÀÏÂ÷°¡ ÁÁÀº ³¯ÀÌ µÇ´Â °æ¿ì
-		dp[i][SAD] = (dp[i - 1][HAPPY] * state_table[HAPPY][SAD]) + (dp[i - 1][SAD] * state_table[SAD][SAD]); // iÀÏÂ÷°¡ ½ÈÀº ³¯ÀÌ µÇ´Â °æ¿ì
+		dp[i][HAPPY] = (dp[i - 1][HAPPY] * state_table[HAPPY][HAPPY]) + (dp[i - 1][SAD] * state_table[SAD][HAPPY]); // iì¼ì°¨ê°€ ì¢‹ì€ ë‚ ì´ ë˜ëŠ” ê²½ìš°
+		dp[i][SAD] = (dp[i - 1][HAPPY] * state_table[HAPPY][SAD]) + (dp[i - 1][SAD] * state_table[SAD][SAD]); // iì¼ì°¨ê°€ ì‹«ì€ ë‚ ì´ ë˜ëŠ” ê²½ìš°
 	}
 
-	cout << (int)(dp[N][HAPPY] * 1000) << '\n';
-	cout << (int)(dp[N][SAD] * 1000) << '\n';
+	cout << (int)(round)(dp[N][HAPPY] * 1000) << '\n';
+	cout << (int)(round)(dp[N][SAD] * 1000) << '\n';
 
 
 }
