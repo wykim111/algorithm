@@ -1,10 +1,10 @@
 /*
-	< �׸��� �˰�����>
+	< 그리디 알고리즘>
 
-	1. i��° �� �������� ����
+	1. i번째 날 최저가를 구함
 		min_arr[i] = min(min_arr[i-1], A[i]);
-	2. i��° �� �ִ� ����
-		2-1. �������� �ִ���Ͱ� ���� �Ⱦ������� ���� �� �ִ�
+	2. i번째 날 최대 수익
+		2-1. 이전까지 최대수익과 오늘 팔았을떄의 수익 중 최댓값
 
 */
 
@@ -35,7 +35,8 @@ void input()
 void solution()
 {
 	int max_ans = 0;
-
+	int min_val = 2000000000; // 과거의 최저가를 기억할 변수 (아주 큰 값으로 초기화)
+#if 0
 	for (int i = 0; i < N; i++)
 	{
 		
@@ -46,6 +47,19 @@ void solution()
 
 		ans_vt.push_back(max_ans);
 	}
+#endif
+	for (int i = 0; i < N; i++)
+	{
+		// i번째 날 최저가를 구함
+		min_val = min(min_val, A_vt[i]);
+
+		// i번째 날 최대 수익
+		max_ans = max(max_ans, A_vt[i] - min_val);
+
+		ans_vt.push_back(max_ans);
+	}
+
+
 
 	for (int i = 0; i < ans_vt.size(); i++)
 	{
