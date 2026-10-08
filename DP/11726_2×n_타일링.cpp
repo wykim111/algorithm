@@ -47,28 +47,18 @@ void input()
 int go(int width)
 {
     // base case
-    if(width == N)
-    {
-        return 1;
-    }
-
-    if(dp[width] != 0)
-    {
-        return dp[width];
-    }
-
+    if(width == N) return 1;
     
-    if((width + 1) <= N)
-    {
-        dp[width] += go(width + 1) % MOD;
-    }
+ 
+    if(width > N) return 0;
 
-    if((width + 2) <= N)
-    {
-        dp[width] += go(width + 2) % MOD;
-    }
+    int& ret = dp[width];
+    if(ret != 0) return ret;
 
-    return dp[width] % MOD;
+    ret = (go(width + 1) + go(width + 2)) % MOD;
+
+
+    return ret; 
 }
 
 void solution()
