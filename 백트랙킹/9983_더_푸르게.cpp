@@ -1,38 +1,38 @@
 /*
 
-	< ¹éÆ®·¡Å· - subset, bitmasking >
+	< ë°±íŠ¸ë˜í‚¹ - subset, bitmasking >
 
-1. Ã¼½º À¯´ÖÀÇ Á¤º¸(¿ªÇÒ, À§Ä¡)¸¦ vector¿¡ ÀúÀå.
+1. ì²´ìŠ¤ ìœ ë‹›ì˜ ì •ë³´(ì—­í• , ìœ„ì¹˜)ë¥¼ vectorì— ì €ì¥.
 
-2. Å½»ö
+2. íƒìƒ‰
 
 		go(dep, unit_subset_mask)
 		{
 
-			if(dep == Ã¼½º À¯´ÖÀÇ ÃÑ °¹¼ö)
+			if(dep == ì²´ìŠ¤ ìœ ë‹›ì˜ ì´ ê°¯ìˆ˜)
 			{
-				//Á¦°Å À¯´ÖÀÇ ¼ö = ÃÑ À¯´Ö - ¼±ÅÃÇÑ À¯´Ö(unit_subset_mask)
+				//ì œê±° ìœ ë‹›ì˜ ìˆ˜ = ì´ ìœ ë‹› - ì„ íƒí•œ ìœ ë‹›(unit_subset_mask)
 
 				return;
 
 			}
 
 
-		2-1. ÇöÀç dep¹øÂ° À¯´ÖÀ» Æ÷ÇÔÇÏ´Â °æ¿ì
-		if(ÇöÀç dep À¯´ÖÀÌ ¸ğµÎ¸¦ °ø°İÇÏÁö ¾ÊÀº °æ¿ì)
+		2-1. í˜„ì¬ depë²ˆì§¸ ìœ ë‹›ì„ í¬í•¨í•˜ëŠ” ê²½ìš°
+		if(í˜„ì¬ dep ìœ ë‹›ì´ ëª¨ë‘ë¥¼ ê³µê²©í•˜ì§€ ì•Šì€ ê²½ìš°)
 		{
-			¸Ê¿¡ À¯´Ö À§Ä¡ Ãß°¡
+			ë§µì— ìœ ë‹› ìœ„ì¹˜ ì¶”ê°€
 			go(dep+1, unit_subset_mask | (1 << dep));
-			¸Ê¿¡ À¯´Ö À§Ä¡ Á¦°Å
+			ë§µì— ìœ ë‹› ìœ„ì¹˜ ì œê±°
 		}
 		
 
-		2-2. ÇöÀç dep¹ø¤Š À¯´ÖÀ» Æ÷ÇÔÇÏÁö ¾ÊÀº °æ¿ì
+		2-2. í˜„ì¬ depë²ˆì¨° ìœ ë‹›ì„ í¬í•¨í•˜ì§€ ì•Šì€ ê²½ìš°
 		go(dep+1, unit_subset_mask);
 
 	}
 
-3. °¢ À¯´ÖÀÇ ¹üÀ§¿¡ ´Ù¸¥ À¯´ÖµéÀÌ ÀÖ´ÂÁö Ã¼Å©
+3. ê° ìœ ë‹›ì˜ ë²”ìœ„ì— ë‹¤ë¥¸ ìœ ë‹›ë“¤ì´ ìˆëŠ”ì§€ ì²´í¬
 	
 
 
@@ -64,10 +64,10 @@ char temp_table[11][11];
 
 int total_unit_cnt = 0;
 
-// ¹æÇâ ¹è¿­
-int dy[8] = { -1, 1, 0, 0, -1, -1, 1, 1 }; // 0~3: »óÇÏÁÂ¿ì, 4~7: ´ë°¢¼±
+// ë°©í–¥ ë°°ì—´
+int dy[8] = { -1, 1, 0, 0, -1, -1, 1, 1 }; // 0~3: ìƒí•˜ì¢Œìš°, 4~7: ëŒ€ê°ì„ 
 int dx[8] = { 0, 0, -1, 1, -1, 1, -1, 1 };
-int ndy[8] = { -2, -2, -1, -1, 1, 1, 2, 2 }; // ³ªÀÌÆ® 8¹æÇâ
+int ndy[8] = { -2, -2, -1, -1, 1, 1, 2, 2 }; // ë‚˜ì´íŠ¸ 8ë°©í–¥
 int ndx[8] = { -1, 1, -2, 2, -2, 2, -1, 1 };
 
 
@@ -97,7 +97,7 @@ void input()
 		{
 			cin >> input_table[i][j];
 
-			// ºóÄ­(E)ÀÌ ¾Æ´Ñ À¯´Öµé¸¸ ¹éÆ®·¡Å·À» À§ÇØ vector¿¡ ÀúÀå
+			// ë¹ˆì¹¸(E)ì´ ì•„ë‹Œ ìœ ë‹›ë“¤ë§Œ ë°±íŠ¸ë˜í‚¹ì„ ìœ„í•´ vectorì— ì €ì¥
 			if (input_table[i][j] != 'E')
 			{
 				unit_vt.push_back({ input_table[i][j], i, j });
@@ -113,7 +113,7 @@ bool can_attack_King(int idx)
 	int y = unit_vt[idx].y;
 	int x = unit_vt[idx].x;
 
-	// 8¹æÇâ 1Ä­¾¿¸¸ °Ë»ç
+	// 8ë°©í–¥ 1ì¹¸ì”©ë§Œ ê²€ì‚¬
 	for (int d = 0; d < 8; d++) 
 	{
 		int ny = y + dy[d];
@@ -134,7 +134,7 @@ bool can_attack_Queen(int idx)
 	int y = unit_vt[idx].y;
 	int x = unit_vt[idx].x;
 
-	// 8¹æÇâ ³¡±îÁö ÀüÁø
+	// 8ë°©í–¥ ëê¹Œì§€ ì „ì§„
 	for (int d = 0; d < 8; d++) 
 	{
 		int ny = y + dy[d];
@@ -158,7 +158,7 @@ bool can_attack_Bishop(int idx)
 	int y = unit_vt[idx].y;
 	int x = unit_vt[idx].x;
 
-	// 4~7(´ë°¢¼±) ¹æÇâ ³¡±îÁö ÀüÁø
+	// 4~7(ëŒ€ê°ì„ ) ë°©í–¥ ëê¹Œì§€ ì „ì§„
 	for (int d = 4; d < 8; d++) 
 	{
 		int ny = y + dy[d];
@@ -181,7 +181,7 @@ bool can_attack_Rock(int idx) // Rook
 	int y = unit_vt[idx].y;
 	int x = unit_vt[idx].x;
 
-	// 0~3(»óÇÏÁÂ¿ì) ¹æÇâ ³¡±îÁö ÀüÁø
+	// 0~3(ìƒí•˜ì¢Œìš°) ë°©í–¥ ëê¹Œì§€ ì „ì§„
 	for (int d = 0; d < 4; d++) 
 	{
 		int ny = y + dy[d];
@@ -204,7 +204,7 @@ bool can_attack_Knight(int idx)
 	int y = unit_vt[idx].y;
 	int x = unit_vt[idx].x;
 
-	// ³ªÀÌÆ® Æ¯¼ö 8¹æÇâ 1Ä­ °Ë»ç
+	// ë‚˜ì´íŠ¸ íŠ¹ìˆ˜ 8ë°©í–¥ 1ì¹¸ ê²€ì‚¬
 	for (int d = 0; d < 8; d++) 
 	{
 		int ny = y + ndy[d];
@@ -226,7 +226,7 @@ bool can_attack(int idx)
 	bool attack_flag = false;
 	temp_table[target_unit.y][target_unit.x] = target_unit.type;
 
-	//ÇöÀç target unitÀÌ °ø°İ °¡´ÉÇÑ ¹üÀ§ ³»¿¡ ´Ù¸¥ À¯´ÖÀÌ Á¸ÀçÇÏ´ÂÁö È®ÀÎ
+	//í˜„ì¬ target unitì´ ê³µê²© ê°€ëŠ¥í•œ ë²”ìœ„ ë‚´ì— ë‹¤ë¥¸ ìœ ë‹›ì´ ì¡´ì¬í•˜ëŠ”ì§€ í™•ì¸
 	if (target_unit.type == 'K')
 	{
 		attack_flag = can_attack_King(idx);
@@ -249,7 +249,7 @@ bool can_attack(int idx)
 	}
 
 
-	//´Ù¸¥ À¯´ÖÀÌ ÇöÀç target unitÀ» °ø°İÇÒ ¼ö ÀÖ´ÂÁö È®ÀÎ
+	//ë‹¤ë¥¸ ìœ ë‹›ì´ í˜„ì¬ target unitì„ ê³µê²©í•  ìˆ˜ ìˆëŠ”ì§€ í™•ì¸
 	if (attack_flag == false)
 	{
 		for (int i = 0; i < idx; i++)
@@ -278,6 +278,11 @@ bool can_attack(int idx)
 				{
 					attack_flag = can_attack_Knight(i);
 				}
+			}
+
+			if (attack_flag == true)
+			{
+				break;
 			}
 
 		}
@@ -309,7 +314,7 @@ void go(int dep, unsigned int unit_subset_mask)
 	}
 
 
-	//ÇöÀç dep¹øÂ° À¯´ÖÀ» Æ÷ÇÔÇÏ´Â °æ¿ì
+	//í˜„ì¬ depë²ˆì§¸ ìœ ë‹›ì„ í¬í•¨í•˜ëŠ” ê²½ìš°
 	if (can_attack(dep) == false)
 	{
 		unit_info pick_unit = unit_vt[dep];
@@ -318,7 +323,7 @@ void go(int dep, unsigned int unit_subset_mask)
 		go(dep + 1, unit_subset_mask | (1 << dep));
 		temp_table[pick_unit.y][pick_unit.x] = 'E';
 	}
-	//ÇöÀç dep¹ø¤Š À¯´ÖÀ» Æ÷ÇÔÇÏÁö ¾ÊÀº °æ¿ì
+	//í˜„ì¬ depë²ˆì¨° ìœ ë‹›ì„ í¬í•¨í•˜ì§€ ì•Šì€ ê²½ìš°
 	go(dep + 1, unit_subset_mask);
 }
 
