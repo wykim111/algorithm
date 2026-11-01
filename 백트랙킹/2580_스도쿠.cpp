@@ -18,11 +18,11 @@
 		}
 
 	   (y, x) 추출 및 section = (y / 3) * 3 + (x / 3)
-	   - for (num = 1 ~ 9)
+	   for (num = 1 ~ 9)
 		   if (!row[y][num] && !col[x][num] && !section[sec][num])
-			   방문 처리 (board, row, col, section)
+			   방문 처리 (input_table, row, col, section)
 			   go(dep + 1)
-			   원복 (board = 0, row, col, section 해제)
+			   원복 (input_table = 0, row, col, section 해제)
 	}
 */
 
